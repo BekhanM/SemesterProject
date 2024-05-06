@@ -10,8 +10,9 @@ public class User {
     private String address;
     private int postnr;
     private String city;
+    private int tlfnr;
 
-    public User(int userID, String email, String password, String role, String firstName, String lastName, String address, int postnr, String city) {
+    public User(int userID, String email, String password, String role, String firstName, String lastName, String address, int postnr, String city, int tlfnr) {
         this.userID = userID;
         this.email = email;
         this.password = password;
@@ -21,6 +22,7 @@ public class User {
         this.address = address;
         this.postnr = postnr;
         this.city = city;
+        this.tlfnr = tlfnr;
     }
     public int getUserID() {
         return userID;
@@ -48,6 +50,10 @@ public class User {
     }
     public String getCity() {
         return city;
+    }
+
+    public int getTlfnr() {
+        return tlfnr;
     }
 
     public void setUserID(int userID) {
@@ -85,6 +91,11 @@ public class User {
     public void setCity(String city) {
         this.city = city;
     }
+
+    public void setTlfnr(int tlfnr) {
+        this.tlfnr = tlfnr;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -95,8 +106,9 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
-                ", postalCode=" + postnr +
+                ", postnr=" + postnr +
                 ", city='" + city + '\'' +
+                ", tlfnr=" + tlfnr +
                 '}';
     }
 }
