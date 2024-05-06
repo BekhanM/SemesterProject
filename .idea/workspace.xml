@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="Adding code structure and 3 classes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="cp and stuff" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,10 +21,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "BekhanM"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/BekhanM/SemesterProject.git",
+    "accountId": "a840633c-f908-4d1c-af91-8b17e740f2ef"
+  }
+}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -46,7 +55,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/fourthingsplus_spring_2024",
+    "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,7 +78,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-3183f394aec4-74f1fbcb" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -83,6 +93,7 @@
       <updated>1714657374107</updated>
       <workItem from="1714657375229" duration="8000" />
       <workItem from="1714981610954" duration="2495000" />
+      <workItem from="1714987766130" duration="361000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -100,7 +111,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714986073699</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="cp and stuff">
+      <option name="closed" value="true" />
+      <created>1714988064777</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714988064777</updated>
+    </task>
+    <task id="LOCAL-00004" summary="cp and stuff">
+      <option name="closed" value="true" />
+      <created>1714988083786</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714988083786</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding code structure and 3 classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding code structure and 3 classes" />
+    <MESSAGE value="cp and stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="cp and stuff" />
   </component>
 </project>
