@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div class="card-image">
+    <header>
+        <a href="homepage.html" th:href="@{/}">
+            <img alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+        </a>
+    </header>
+</div>
+<div class="welcome-box">
+
+    <h1>
+
+    </h1>
+    <h3>Which of the following would you like to do?</h3>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Opret bruger</button>
+
+</div>
+
+<div id="id01" class="modal">
+
+    <form class="modal-content animate" action="/templates/login.html" method="post">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+
+        <div class="container" method="post">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+            <button type="submit" formaction="/login">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div th:if="${session.currentUser != null}">
+            <span th:text="${session.currentUser.email}"></span> |
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<div id="id02" class="modal">
+
+    <form class="modal-content animate" action="/templates/login.html" method="post">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+
+        <div class="container" method="post">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Skriv Email" name="email" id="email2" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Skriv Password" name="password1" id="password1" required>
+
+            <label for="password2"><b>Password2</b></label>
+            <input type="password" placeholder="Skriv Password igen" name="password2" id="password2" required>
+
+            <label for="firstname"><b>Fornavn</b></label>
+            <input type="text" placeholder="Skriv fornavn" name="firstname" id="firstname" required>
+
+            <label for="lastname"><b>Efternavn</b></label>
+            <input type="text" placeholder="Skriv efternavn" name="lastname" id="lastname" required>
+
+            <label for="address"><b>Adresse</b></label>
+            <input type="text" placeholder="Skriv adresse" name="address" id="address" required>
+
+            <label for="postnr"><b>Postnr</b></label>
+            <input type="text" placeholder="Skriv postnr" name="postnr" id="postnr" required>
+
+            <label for="city"><b>By</b></label>
+            <input type="text" placeholder="Skriv bynavn" name="city" id="city" required>
+
+            <label for="tlfnr"><b>Telefonnummer</b></label>
+            <input type="text" placeholder="Skriv telefonnummer" name="tlfnr" id="tlfnr" required>
+
+            <button type="submit" formaction="/createuser">Opret bruger</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const modal = document.getElementById('id01');
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    const modal = document.getElementById('id02');
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
+</body>
+</html>

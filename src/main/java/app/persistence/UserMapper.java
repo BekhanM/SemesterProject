@@ -39,21 +39,21 @@ public class UserMapper {
         }
     }
 
-    public static void createuser(String userName, String password, String firstname, String lastname, String adresse, int postnr, String by, int tlfnr, ConnectionPool connectionPool) throws DatabaseException {
+    public static void createuser(String email, String password, String firstname, String lastname, String adresse, int postnr, String by, int tlfnr, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "insert into users (email, password, firstname, lastname, adresse, postnr, by, tlfnr) values (?,?,?,?,?,?,?,?)";
 
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql)
         ) {
-            ps.setString(1, userName);
+            ps.setString(1, email);
             ps.setString(2, password);
-            ps.setString(4, firstname);
-            ps.setString(5, lastname);
-            ps.setString(6, adresse);
-            ps.setInt(7, postnr);
-            ps.setString(8, by);
-            ps.setInt(9, tlfnr);
+            ps.setString(3, firstname);
+            ps.setString(4, lastname);
+            ps.setString(5, adresse);
+            ps.setInt(6, postnr);
+            ps.setString(7, by);
+            ps.setInt(8, tlfnr);
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1) {
                 throw new DatabaseException("Fejl ved oprettelse af ny bruger");
