@@ -53,7 +53,6 @@ public class UserController {
     }
 
     public static void login(Context ctx, ConnectionPool connectionPool) {
-        //Hent form parametre
         System.out.println("NU ER DU LOGGET IND ");
         String email = ctx.formParam("email");
         String password = ctx.formParam("password");
@@ -65,7 +64,11 @@ public class UserController {
 
             ctx.attribute("role", user.getRole());
 
-            ctx.render("/homepage");
+            if (user.getRole().equals("admin")) {
+                ctx.render("admin.html");
+            } else {
+                ctx.render("/homepage");
+            }
         } catch (DatabaseException e) {
             //Hvis nej, send tilbage til login side med fejl besked
             ctx.attribute("message", e.getMessage());
