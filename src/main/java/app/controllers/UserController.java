@@ -15,6 +15,7 @@ public class UserController {
         app.post("login", ctx -> login(ctx, connectionPool));
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
+        app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) {

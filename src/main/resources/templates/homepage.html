@@ -17,7 +17,7 @@
 </div>
 
 <div class="welcome-box">
-    <p th:if="${session.currentUser != null}">Welcome, <span th:text="${session.currentUser.email}"></span>!</p>
+    <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.email}"></span>!</p>
     <p th:if="${session.currentUser == null}">
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Opret bruger</button>
@@ -120,6 +120,10 @@
         }
     }
 </script>
+
+<div class="options">
+    <a href="makeyourowncarport.html" th:href="@{makeyourowncarport}">Lav din egen carport</a>
+</div>
 
 <div class="carport-container" >
     <div class="carport" >
