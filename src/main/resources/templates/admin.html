@@ -2,13 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminPage</title>
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
 
-<h1>ADMIN PAGE BROTHER</h1>
+<div class="card-image">
+    <header>
+        <a href="homepage.html" th:href="@{/}">
+            <img alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+        </a>
+    </header>
+</div>
 
+<div class="welcome-box">
+    <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.firstname}"></span>!</p>
+</div>
 
+<form th:action="@{/admin}" method="post">
+    <label for="email">Enter User Email:</label>
+    <input type="text" id="email" name="email" required>
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Rolle</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Adresse</th>
+        <th>Postnummer</th>
+        <th>By</th>
+        <th>Telefonnummer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.role}"></td>
+        <td th:text="${user.firstname}"></td>
+        <td th:text="${user.lastname}"></td>
+        <td th:text="${user.adresse}"></td>
+        <td th:text="${user.postnr}"></td>
+        <td th:text="${user.by}"></td>
+        <td th:text="${user.tlfnr}"></td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

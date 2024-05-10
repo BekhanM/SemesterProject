@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserMapper {
 
@@ -65,5 +67,78 @@ public class UserMapper {
             }
             throw new DatabaseException(msg, e.getMessage());
         }
+    }
+
+    public static List<User> getUserDetails(int userID, ConnectionPool connectionPool) throws DatabaseException {
+
+        System.out.println("Nu er du i getUserDetails mapper");
+
+        System.out.println("Executing SQL query to retrieve user details for userID: " + userID);
+
+        List<User> userDetailsList = new ArrayList<>();
+
+        String sql = "SELECT * FROM users WHERE userID = ?";
+
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement ps = connection.prepareStatement(sql)
+
+        ) {
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int ID = rs.getInt("userID");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String adresse = rs.getString("adresse");
+                int postnr = rs.getInt("postnr");
+                String by = rs.getString("by");
+                int tlfnr = rs.getInt("tlfnr");
+                User userDetails = new User(ID, email, password, role, firstname, lastname, adresse, postnr, by, tlfnr);
+                userDetailsList.add(userDetails);
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Database error while retrieving user1 details", e.getMessage());
+        }
+        return userDetailsList;
+    }
+
+    public static List<User> getAllUsersDetail(String userEmail, ConnectionPool connectionPool) throws DatabaseException {
+        System.out.println("Nu er du i getAllUsersDetail mapper");
+
+        List<User> userDetailsList = new ArrayList<>();
+
+        String sql = "SELECT * FROM users WHERE email LIKE ?";
+
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + userEmail + "%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int ID = rs.getInt("userID");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String adresse = rs.getString("adresse");
+                int postnr = rs.getInt("postnr");
+                String by = rs.getString("by");
+                int tlfnr = rs.getInt("tlfnr");
+                User userDetails = new User(ID, email, password, role, firstname, lastname, adresse, postnr, by, tlfnr);
+                userDetailsList.add(userDetails);
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Database error while retrieving user2 details", e.getMessage());
+        }
+
+        return userDetailsList;
     }
 }

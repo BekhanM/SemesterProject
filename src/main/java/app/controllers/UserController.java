@@ -7,6 +7,7 @@ import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.util.List;
 import java.util.Objects;
 
 public class UserController {
@@ -16,6 +17,8 @@ public class UserController {
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
         app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
+        app.get("admin", ctx -> getUserDetails(ctx, connectionPool));
+        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) {
@@ -24,7 +27,7 @@ public class UserController {
         String password1 = ctx.formParam("password1");
         String firstname = ctx.formParam("firstname");
         String lastname = ctx.formParam("lastname");
-        String address = ctx.formParam("address");
+        String address = ctx.formParam("adresse");
         int postnr = Integer.parseInt(ctx.formParam("postnr"));
         String city = ctx.formParam("city");
         int tlfnr = Integer.parseInt(ctx.formParam("tlfnr"));
@@ -141,6 +144,40 @@ public class UserController {
             }
         }
         return false;
+    }
+
+    public static void getUserDetails(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        // Retrieve the userID from the current session
+
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        int userID = currentUser.getUserID();
+
+        try {
+            System.out.println("UserID: " + userID);
+            List<User> users = UserMapper.getUserDetails(userID, connectionPool);
+            System.out.println("Retrieved UserDetails: " + users.size()); // Log the size of the orderLine list
+
+            ctx.attribute("userList", users);
+            ctx.render("admin.html");
+        } catch (DatabaseException e) {
+            System.err.println("Error retrieving users details: " + e.getMessage());
+            ctx.status(500).result("Error retrieving users details: " + e.getMessage());
+        }
+    }
+
+    public static void getAllUsersDetail(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        // Retrieve the userID from the current session
+        System.out.println("NU ER DU I GETALLUSERSDETAIL I CONTROLLEREN");
+
+        String userEmail = ctx.formParam("email");
+        try {
+            List<User> userList = UserMapper.getAllUsersDetail(userEmail, connectionPool);
+            ctx.attribute("userList", userList);
+            ctx.render("admin.html");
+        } catch (DatabaseException e) {
+            ctx.status(500).result("Error retrieving user details: " + e.getMessage());
+        }
     }
 
 }
