@@ -7,21 +7,21 @@ public class User {
     private String role;
     private String firstName;
     private String lastName;
-    private String address;
+    private String adresse;
     private int postnr;
-    private String city;
+    private String by;
     private int tlfnr;
 
-    public User(int userID, String email, String password, String role, String firstName, String lastName, String address, int postnr, String city, int tlfnr) {
+    public User(int userID, String email, String password, String role, String firstName, String lastName, String adresse, int postnr, String by, int tlfnr) {
         this.userID = userID;
         this.email = email;
         this.password = password;
         this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
+        this.adresse = adresse;
         this.postnr = postnr;
-        this.city = city;
+        this.by = by;
         this.tlfnr = tlfnr;
     }
     public int getUserID() {
@@ -42,14 +42,14 @@ public class User {
     public String getLastName() {
         return lastName;
     }
-    public String getAddress() {
-        return address;
+    public String getAdresse() {
+        return adresse;
     }
     public int getPostnr() {
         return postnr;
     }
-    public String getCity() {
-        return city;
+    public String getBy() {
+        return by;
     }
 
     public int getTlfnr() {
@@ -80,16 +80,16 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     public void setPostnr(int postnr) {
         this.postnr = postnr;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setBy(String by) {
+        this.by = by;
     }
 
     public void setTlfnr(int tlfnr) {
@@ -105,9 +105,9 @@ public class User {
                 ", role='" + role + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
+                ", address='" + adresse + '\'' +
                 ", postnr=" + postnr +
-                ", city='" + city + '\'' +
+                ", city='" + by + '\'' +
                 ", tlfnr=" + tlfnr +
                 '}';
     }
