@@ -4,12 +4,12 @@ public class Orderline {
 
     private int orderlineID;
     private int orderID;
-    private int materialsID;
+    private int materialID;
 
-    public Orderline(int orderlineID, int orderID, int materialsID) {
+    public Orderline(int orderlineID, int orderID, int materialID) {
         this.orderlineID = orderlineID;
         this.orderID = orderID;
-        this.materialsID = materialsID;
+        this.materialID = materialID;
     }
 
     public int getOrderlineID() {
@@ -28,12 +28,12 @@ public class Orderline {
         this.orderID = orderID;
     }
 
-    public int getMaterialsID() {
-        return materialsID;
+    public int getMaterialID() {
+        return materialID;
     }
 
-    public void setMaterialsID(int materialsID) {
-        this.materialsID = materialsID;
+    public void setMaterialID(int materialID) {
+        this.materialID = materialID;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Orderline {
         return "Orderline{" +
                 "orderlineID=" + orderlineID +
                 ", orderID=" + orderID +
-                ", materialsID=" + materialsID +
+                ", materialID=" + materialID +
                 '}';
     }
 }

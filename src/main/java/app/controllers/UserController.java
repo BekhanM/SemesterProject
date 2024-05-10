@@ -70,6 +70,8 @@ public class UserController {
             } else {
                 ctx.render("/homepage");
             }
+
+
         } catch (DatabaseException e) {
             //Hvis nej, send tilbage til login side med fejl besked
             ctx.attribute("message", e.getMessage());

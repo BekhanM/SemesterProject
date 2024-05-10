@@ -2,7 +2,7 @@ package app.entities;
 
 public class Materials {
 
-private String materialsID;
+private String materialID;
 private String name;
 private int quantity;
 private int pricePrMeter;
@@ -10,8 +10,8 @@ private int length;
 private int width;
 private int heigth;
 
-    public Materials(String materialsID, String name, int quantity, int pricePrMeter, int length, int width, int heigth) {
-        this.materialsID = materialsID;
+    public Materials(String materialID, String name, int quantity, int pricePrMeter, int length, int width, int heigth) {
+        this.materialID = materialID;
         this.name = name;
         this.quantity = quantity;
         this.pricePrMeter = pricePrMeter;
@@ -20,12 +20,12 @@ private int heigth;
         this.heigth = heigth;
     }
 
-    public String getMaterialsID() {
-        return materialsID;
+    public String getMaterialID() {
+        return materialID;
     }
 
-    public void setMaterialsID(String materialsID) {
-        this.materialsID = materialsID;
+    public void setMaterialID(String materialID) {
+        this.materialID = materialID;
     }
 
     public String getName() {
@@ -79,7 +79,7 @@ private int heigth;
     @Override
     public String toString() {
         return "Materials{" +
-                "materialsID='" + materialsID + '\'' +
+                "materialID='" + materialID + '\'' +
                 ", name='" + name + '\'' +
                 ", quantity=" + quantity +
                 ", pricePrMeter=" + pricePrMeter +
