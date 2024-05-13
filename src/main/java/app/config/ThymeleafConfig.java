@@ -11,6 +11,8 @@ public class ThymeleafConfig
         ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
         templateResolver.setPrefix("templates/"); // assuming templates are in resources/templates/
         templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML");
+        templateEngine.setTemplateResolver(templateResolver);
         templateEngine.setTemplateResolver(templateResolver);
         return templateEngine;
     }

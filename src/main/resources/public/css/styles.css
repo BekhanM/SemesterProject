@@ -328,3 +328,9 @@ body {
 }
 
 
+/*--------------------Carp------------*/
+.carport-svg-topview
+{
+    padding: 50px;
+    max-width: 800px;
+}

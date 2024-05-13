@@ -1,6 +1,7 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.OrderController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -26,5 +27,6 @@ public class Main
 
         UserController.addRoutes(app, connectionPool);
         app.get("/", ctx ->  ctx.render("homepage.html"));
+        app.get("/showCarport",ctx -> OrderController.showCarport(ctx));
     }
 }
