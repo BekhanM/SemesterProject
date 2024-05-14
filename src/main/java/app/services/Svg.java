@@ -51,9 +51,9 @@ public class Svg
     }
 
 
-    public void addRectangle(double x, double y, double height, double width, String style)
+    public void addRectangle(double x, double y, double length, double width, String style)
     {
-        svg.append(String.format(SVG_RECT_TEMPLATE, x, y, height, width, style ));
+        svg.append(String.format(SVG_RECT_TEMPLATE, x, y, length, width, style ));
     }
 
 
