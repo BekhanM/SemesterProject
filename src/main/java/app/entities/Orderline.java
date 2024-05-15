@@ -6,10 +6,13 @@ public class Orderline {
     private int orderID;
     private int materialID;
 
-    public Orderline(int orderlineID, int orderID, int materialID) {
+    private int amountOfMaterials;
+
+    public Orderline(int orderlineID, int orderID, int materialID, int amountOfMaterials) {
         this.orderlineID = orderlineID;
         this.orderID = orderID;
         this.materialID = materialID;
+        this.amountOfMaterials = amountOfMaterials;
     }
 
     public int getOrderlineID() {
@@ -36,12 +39,21 @@ public class Orderline {
         this.materialID = materialID;
     }
 
+    public int getAmountOfMaterials() {
+        return amountOfMaterials;
+    }
+
+    public void setAmountOfMaterials(int amountOfMaterials) {
+        this.amountOfMaterials = amountOfMaterials;
+    }
+
     @Override
     public String toString() {
         return "Orderline{" +
                 "orderlineID=" + orderlineID +
                 ", orderID=" + orderID +
                 ", materialID=" + materialID +
+                ", amountOfMaterials=" + amountOfMaterials +
                 '}';
     }
 }

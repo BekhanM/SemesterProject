@@ -29,6 +29,7 @@
 <table>
     <thead>
     <tr>
+        <th>UserID</th>
         <th>Email</th>
         <th>Password</th>
         <th>Rolle</th>
@@ -41,19 +42,29 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="user : ${userList}">
-        <td th:text="${user.email}"></td>
-        <td th:text="${user.password}"></td>
-        <td th:text="${user.role}"></td>
-        <td th:text="${user.firstname}"></td>
-        <td th:text="${user.lastname}"></td>
-        <td th:text="${user.adresse}"></td>
-        <td th:text="${user.postnr}"></td>
-        <td th:text="${user.by}"></td>
-        <td th:text="${user.tlfnr}"></td>
+    <tr th:each="users : ${userList}">
+        <td th:text="${users.userID}"></td>"
+        <td th:text="${users.email}"></td>
+        <td th:text="${users.password}"></td>
+        <td th:text="${users.role}"></td>
+        <td th:text="${users.firstname}"></td>
+        <td th:text="${users.lastname}"></td>
+        <td th:text="${users.adresse}"></td>
+        <td th:text="${users.postnr}"></td>
+        <td th:text="${users.by}"></td>
+        <td th:text="${users.tlfnr}"></td>
+        <td>
+            <form action="@{/removeUser}" th:action="@{/removeuser}" method="post">
+                <button type="submit"  name="userID" th:value="${users.userID}">Remove</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
+
+<a href="orderlist.html" th:href="@{/orderlist}">
+    <img alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+</a>
 
 </body>
 </html>

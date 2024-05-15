@@ -141,4 +141,21 @@ public class UserMapper {
 
         return userDetailsList;
     }
+
+    public static void removeUser(int userID, ConnectionPool connectionPool) throws DatabaseException {
+        System.out.println("Nu er du i removeUser mapper");
+        String sql = "DELETE FROM users WHERE \"userID\" = ?";
+
+        try (Connection connection = connectionPool.getConnection();
+                PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setInt(1, userID);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected != 1) {
+                throw new DatabaseException("User with ID " + userID + " not found.");
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Error deleting user with ID " + userID, e.getMessage());
+        }
+    }
 }

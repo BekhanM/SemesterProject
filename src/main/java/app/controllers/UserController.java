@@ -17,8 +17,10 @@ public class UserController {
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
         app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
-        app.get("admin", ctx -> getUserDetails(ctx, connectionPool));
         app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
+        app.get("admin", ctx -> ctx.render("admin.html"));
+        app.post("removeuser", ctx -> removeUser(ctx, connectionPool));
+
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) {
@@ -179,5 +181,18 @@ public class UserController {
             ctx.status(500).result("Error retrieving user details: " + e.getMessage());
         }
     }
+
+    private static void removeUser(Context ctx, ConnectionPool connectionPool) {
+        System.out.println("NU ER DU I REMOVEUSER I CONTROLLEREN");
+
+        int userID = Integer.parseInt(ctx.formParam("userID"));
+        try {
+            UserMapper.removeUser(userID, connectionPool);
+            ctx.redirect("/admin");
+        } catch (DatabaseException e) {
+            ctx.status(500).result("Error removing user: " + e.getMessage());
+        }
+    }
+
 
 }
