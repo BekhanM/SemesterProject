@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="svg carport start&#10;mange bugs og refactor&#10;variabler skiftes">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024,_11_01_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024_10_43_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024_10_43__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024__11_01__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/services/CarportSvg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/CarportSvg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/Svg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/Svg.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +146,8 @@
       <workItem from="1715514469678" duration="15932000" />
       <workItem from="1715672747907" duration="32000" />
       <workItem from="1715677049541" duration="664000" />
-      <workItem from="1715706881308" duration="5329000" />
+      <workItem from="1715706881308" duration="5542000" />
+      <workItem from="1715783926088" duration="2572000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -217,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715159401088</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe">
+      <option name="closed" value="true" />
+      <created>1715712304706</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715712304706</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +234,7 @@
     <MESSAGE value="Fixing usermapper" />
     <MESSAGE value="predefined carports with links to site and homepagehtml" />
     <MESSAGE value="adding makeyourowncarport.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding makeyourowncarport.html" />
+    <MESSAGE value="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe" />
   </component>
 </project>
