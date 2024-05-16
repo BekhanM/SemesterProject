@@ -5,6 +5,7 @@ import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.OrderMapper;
+import app.services.CarportPartsCalculator;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
@@ -19,6 +20,7 @@ public class OrderController {
        app.post("/orderlist", ctx -> getAllOrdersForSearchedUser(ctx, connectionPool));
        app.get("/orderlist", ctx -> ctx.render("orderlist.html"));
        app.post("/removeorder", ctx -> removeOrder(ctx, connectionPool));
+        app.post("/makeorder", ctx -> makeOrder(ctx, connectionPool));
     }
 
     public static void makeOrder(Context ctx, ConnectionPool connectionPool) {

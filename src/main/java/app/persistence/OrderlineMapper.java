@@ -1,18 +1,15 @@
 package app.persistence;
 
 import app.exceptions.DatabaseException;
-import com.fasterxml.jackson.core.JsonParseException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class OrderlineMapper {
-    private static int orderID;
-    private static int materialID;
 
     public static void createOrderline(int orderID, int materialID, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO orderline (\"orderID\", \"materialID\") VALUES (?,?)";
+        String sql = "INSERT INTO orderline (\"orderID\", \"materialID\") VALUES (?, ?)";
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -25,9 +22,7 @@ public class OrderlineMapper {
                 throw new DatabaseException("Fejl ved createOrderline");
             }
         } catch (SQLException e) {
-            String msg = "Fejl ved createOrderline";
-            throw new DatabaseException(msg, e.getMessage());
+            throw new DatabaseException("Fejl ved createOrderline", e.getMessage());
         }
-
     }
 }

@@ -4,23 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="adding getAllOrdersForSearchedUser, removeUser and removeOrder">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/util/Sendgrid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/app/persistence/OrderMapperTest.java" afterDir="false" />
+    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="orders og stykliste 0.1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/CarportPartsCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024,_11_01_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024_10_43_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024_10_43__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024__11_01__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Materials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderlineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderlineMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +34,13 @@
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mailBranch" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,45 +73,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.admin.html.executor": "Run",
-    "JavaScript Debug.homepage.html.executor": "Run",
-    "JavaScript Debug.login.html.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.admin.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.homepage.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.login.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;orders&amp;&amp;stykliste&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="app" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="app.persistence" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.controllers" />
@@ -119,9 +112,6 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="SENDGRID_API_KEY" value="" />
-      </envs>
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="SemesterProject" />
       <extension name="coverage">
@@ -164,6 +154,13 @@
       <workItem from="1714987766130" duration="813000" />
       <workItem from="1715155915307" duration="895000" />
       <workItem from="1715330712262" duration="396000" />
+      <workItem from="1715374584497" duration="325000" />
+      <workItem from="1715611639542" duration="685000" />
+      <workItem from="1715701475522" duration="19000" />
+      <workItem from="1715701501609" duration="2290000" />
+      <workItem from="1715721228709" duration="13014000" />
+      <workItem from="1715759737695" duration="16344000" />
+      <workItem from="1715847961630" duration="18675000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -235,6 +232,49 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="OttoDyva" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="OttoDyva" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding code structure and 3 classes" />
     <MESSAGE value="cp and stuff" />
@@ -242,6 +282,7 @@
     <MESSAGE value="Fixing usermapper" />
     <MESSAGE value="predefined carports with links to site and homepagehtml" />
     <MESSAGE value="adding makeyourowncarport.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding makeyourowncarport.html" />
+    <MESSAGE value="orders og stykliste 0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="orders og stykliste 0.1" />
   </component>
 </project>

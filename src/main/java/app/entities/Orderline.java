@@ -1,18 +1,16 @@
 package app.entities;
 
 public class Orderline {
-
     private int orderlineID;
     private int orderID;
     private int materialID;
+    private int amountOfMaterial;
 
-    private int amountOfMaterials;
-
-    public Orderline(int orderlineID, int orderID, int materialID, int amountOfMaterials) {
+    public Orderline(int orderlineID, int orderID, int materialID, int amountOfMaterial) {
         this.orderlineID = orderlineID;
         this.orderID = orderID;
         this.materialID = materialID;
-        this.amountOfMaterials = amountOfMaterials;
+        this.amountOfMaterial = amountOfMaterial;
     }
 
     public int getOrderlineID() {
@@ -39,21 +37,21 @@ public class Orderline {
         this.materialID = materialID;
     }
 
-    public int getAmountOfMaterials() {
-        return amountOfMaterials;
+    public int getAmountOfMaterial() {
+        return amountOfMaterial;
     }
 
-    public void setAmountOfMaterials(int amountOfMaterials) {
-        this.amountOfMaterials = amountOfMaterials;
+    public void setAmountOfMaterial(int amountOfMaterial) {
+        this.amountOfMaterial = amountOfMaterial;
     }
 
     @Override
     public String toString() {
         return "Orderline{" +
-                "orderlineID=" + orderlineID +
+                "amountOfMaterial=" + amountOfMaterial +
+                ", orderlineID=" + orderlineID +
                 ", orderID=" + orderID +
                 ", materialID=" + materialID +
-                ", amountOfMaterials=" + amountOfMaterials +
                 '}';
     }
 }
