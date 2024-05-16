@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe">
+    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="predefined carports with links to site and homepagehtml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/services/CarportSvg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/CarportSvg.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SVG-start-prøve2" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,14 +38,12 @@
     &quot;assignee&quot;: &quot;BekhanM&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="7eb4767f-1b15-40f8-a3a3-88ca7bf0e738" />
-        <option name="url" value="https://github.com/BekhanM/SemesterProject.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/BekhanM/SemesterProject.git&quot;,
+    &quot;accountId&quot;: &quot;a840633c-f908-4d1c-af91-8b17e740f2ef&quot;
+  }
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -60,35 +59,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.admin.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.homepage.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.login.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SVG-Bug-Fixes&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.admin.html.executor": "Run",
+    "JavaScript Debug.homepage.html.executor": "Run",
+    "JavaScript Debug.login.html.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "SVG-Bug-Fixes",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="app" />
@@ -116,8 +115,6 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -141,13 +138,8 @@
       <workItem from="1714981610954" duration="2495000" />
       <workItem from="1714987766130" duration="813000" />
       <workItem from="1715155915307" duration="895000" />
-      <workItem from="1715280890654" duration="473000" />
-      <workItem from="1715330534138" duration="12941000" />
-      <workItem from="1715514469678" duration="15932000" />
-      <workItem from="1715672747907" duration="32000" />
-      <workItem from="1715677049541" duration="664000" />
-      <workItem from="1715706881308" duration="5542000" />
-      <workItem from="1715783926088" duration="2572000" />
+      <workItem from="1715330712262" duration="396000" />
+      <workItem from="1715865240839" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -213,15 +205,7 @@
       <option name="project" value="LOCAL" />
       <updated>1715159401088</updated>
     </task>
-    <task id="LOCAL-00009" summary="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe">
-      <option name="closed" value="true" />
-      <created>1715712304706</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1715712304706</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +218,6 @@
     <MESSAGE value="Fixing usermapper" />
     <MESSAGE value="predefined carports with links to site and homepagehtml" />
     <MESSAGE value="adding makeyourowncarport.html" />
-    <MESSAGE value="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor, mangler bug fixes&#10;&#10;P.s Tror at jeg gik den forkerte vej med refactor, &#10;men det er nemt at fixe" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding makeyourowncarport.html" />
   </component>
 </project>

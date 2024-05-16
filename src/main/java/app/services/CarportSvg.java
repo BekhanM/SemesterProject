@@ -96,13 +96,15 @@ public class CarportSvg
 
         carportSvg.addArrow(-45,carportLength,-45,0,"stroke:#000000");
 
-        carportSvg.addArrow(0,carportLength+50,carportWidth,650,"stroke:#000000");
+        carportSvg.addArrow(0,carportLength+50,carportWidth,carportLength+50,"stroke:#000000");
 
     }
 
 
 
     private void addCross(double carportLength, double crossLineX1, double crossLineY1, double crossLineY2){
+
+
         carportSvg.addLine(crossLineX1,crossLineY1,carportLength,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
         carportSvg.addLine(carportLength,crossLineY1,crossLineX1,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
 
@@ -114,7 +116,7 @@ public class CarportSvg
     private void addText(double x, double y, String textX,String textY){
 
         carportSvg.addText(-60,y/2,-90, textY);
-        carportSvg.addText(x/2, 700,0,textX);
+        carportSvg.addText(x/2, carportLength+75,0,textX);
 
 
     }
