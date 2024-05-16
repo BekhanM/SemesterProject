@@ -9,6 +9,8 @@ import app.services.CarportPartsCalculator;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+import java.util.Locale;
+import app.services.CarportSvg;
 
 import java.util.List;
 
@@ -20,6 +22,15 @@ public class OrderController {
        app.post("/orderlist", ctx -> getAllOrdersForSearchedUser(ctx, connectionPool));
        app.get("/orderlist", ctx -> ctx.render("orderlist.html"));
        app.post("/removeorder", ctx -> removeOrder(ctx, connectionPool));
+    }
+
+    public static void showCarport(Context ctx)
+    {
+        Locale.setDefault(new Locale("US"));
+        CarportSvg svg = new CarportSvg(600, 780);
+
+        ctx.attribute("svg", svg.toString());
+        ctx.render("showCarport.html");
     }
 
     public static void makeOrder(Context ctx, ConnectionPool connectionPool) {
