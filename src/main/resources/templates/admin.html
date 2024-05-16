@@ -20,6 +20,10 @@
     <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.firstname}"></span>!</p>
 </div>
 
+<div class="options">
+    <a href="orderlist.html" th:href="@{orderlist}">Se brugeres ordre</a>
+</div>
+
 <form th:action="@{/admin}" method="post">
     <label for="email">Enter User Email:</label>
     <input type="text" id="email" name="email" required>
@@ -61,10 +65,6 @@
     </tr>
     </tbody>
 </table>
-
-<a href="orderlist.html" th:href="@{/orderlist}">
-    <img alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
-</a>
 
 </body>
 </html>

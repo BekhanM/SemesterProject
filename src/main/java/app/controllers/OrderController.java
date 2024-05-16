@@ -34,11 +34,6 @@ public class OrderController {
     private static void getAllOrdersForSearchedUser(Context ctx, ConnectionPool connectionPool) {
         System.out.println("DU ER NU I GETALLORDERSFORCURRENTUSER I CONTROLLEREN");
 
-       /* User currentUser = ctx.sessionAttribute("currentUser");
-        if (currentUser == null) {
-            ctx.status(401).result("Unauthorized");
-            return;
-        } */
         int userID = Integer.parseInt(ctx.formParam("userID"));
 
         try {

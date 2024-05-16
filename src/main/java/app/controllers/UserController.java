@@ -42,14 +42,14 @@ public class UserController {
                 ctx.render("homepage.html");
             } catch (DatabaseException e) {
                 ctx.attribute("message", "Username already exists.");
-                ctx.render("login.html");
+                ctx.render("homepage.html");
             }
         } else if (email.equals(null)){
             ctx.attribute("message", "The passwords need to match.");
-            ctx.render("login.html");
+            ctx.render("homepage.html");
         } else {
             ctx.attribute("message", "Email is not valid or password does not meet requirements.");
-            ctx.render("login.html");
+            ctx.render("homepage.html");
         }
     }
 
@@ -80,7 +80,7 @@ public class UserController {
         } catch (DatabaseException e) {
             //Hvis nej, send tilbage til login side med fejl besked
             ctx.attribute("message", e.getMessage());
-            ctx.render("login.html");
+            ctx.render("homepage.html");
         }
     }
 
