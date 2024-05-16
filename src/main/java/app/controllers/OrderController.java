@@ -20,7 +20,6 @@ public class OrderController {
        app.post("/orderlist", ctx -> getAllOrdersForSearchedUser(ctx, connectionPool));
        app.get("/orderlist", ctx -> ctx.render("orderlist.html"));
        app.post("/removeorder", ctx -> removeOrder(ctx, connectionPool));
-        app.post("/makeorder", ctx -> makeOrder(ctx, connectionPool));
     }
 
     public static void makeOrder(Context ctx, ConnectionPool connectionPool) {
@@ -28,7 +27,7 @@ public class OrderController {
         User currentUser = ctx.sessionAttribute("currentUser");
         int materialID = Integer.parseInt(ctx.formParam("materialID"));
 
-        OrderMapper.orderOrderline(currentUser.getUserID(),materialID, connectionPool);
+        //OrderMapper.addOrderline(currentUser.getUserID(),materialID, connectionPool);
         ctx.attribute("message", "makeOrder successfull (OrderController");
     }
 
