@@ -17,9 +17,9 @@ public class CarportSvg
     private String textX=String.valueOf(carportWidth);
     private String textY= String.valueOf(carportLength);
 
-    private  double crossLineX1 = 55;
-    private  double crossLineY1 = 35;
-    private  double crossLineY2 = 569.5;
+   // private  double crossLineX1 = 55;
+   // private  double crossLineY1 = 35;
+   // private  double crossLineY2 = 569.5;
 
 
     //TODO Det er nogle variabler som har fast værdi, men skal nok skiftes ud med hensyn til regnestykke
@@ -37,7 +37,7 @@ public class CarportSvg
 
         addBeams(carportWidth);
         //addline SKAL VÆRE EFTER ADDBEAMS, Det er en weird bug
-        addCross(carportLength,crossLineX1,crossLineY1,crossLineY2);
+        addCross(carportLength/*,crossLineX1,crossLineY1,crossLineY2*/);
 
         addXYArrow(carportLength,carportWidth);
 
@@ -58,9 +58,12 @@ public class CarportSvg
 
     //-------------------------Vandrætt-----------------------------//
     private void addBeams(double carportWidth){
+        int spaceControl = 35;
+        double bottomStartSpace = carportLength-spaceControl;
 
-       carportSvg.addRectangle(0,35,4.5, carportWidth, "stroke-width:1px; stroke:#000000; fill: #ffffff");
-        carportSvg.addRectangle(0,565,4.5, carportWidth, "stroke-width:1px; stroke:#000000; fill: #ffffff");
+
+       carportSvg.addRectangle(0,spaceControl,4.5, carportWidth, "stroke-width:1px; stroke:#000000; fill: #ffffff");
+        carportSvg.addRectangle(0,bottomStartSpace,4.5, carportWidth, "stroke-width:1px; stroke:#000000; fill: #ffffff");
 
     }
     //------------------------------------------------------------//
@@ -102,7 +105,13 @@ public class CarportSvg
 
 
 
-    private void addCross(double carportLength, double crossLineX1, double crossLineY1, double crossLineY2){
+    private void addCross(double carportLength/*, double crosslineX1, double crossLineY1, double crossLineY2*/){
+        double X1 = carportLength-55;
+        double Y1= carportWidth-35;
+
+        double crossLineX1 = carportLength-X1;
+        double crossLineY1= carportWidth-Y1;
+        double crossLineY2= carportLength-30.5;
 
 
         carportSvg.addLine(crossLineX1,crossLineY1,carportLength,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
@@ -120,22 +129,15 @@ public class CarportSvg
 
 
     }
-    private void addRafterArrows(double carportWidth, double rafterSpace){
-        DecimalFormat df = new DecimalFormat("#,#");
+    private void addRafterArrows(double carportWidth, double rafterSpace) {
+        DecimalFormat df = new DecimalFormat("#.#");
         String formatNr = df.format(rafterSpace);
-        double lengthTracker = 0;
-        //---TODO Debugging arrows
-        for (double i = 0; i < carportWidth; i+= rafterSpace)
-        {
-            carportSvg.addArrow(i, -10, i, -10,"stroke:#000000" );
-
-            carportSvg.addText(i+rafterSpace/2,-15,0,formatNr);
-
-            lengthTracker=i;
-
-
+        for (double i = 2.25; i <= carportWidth; i += rafterSpace) {
+            carportSvg.addLine(i,-10,i,10,"stroke:#000000");
+            carportSvg.addArrow(i, -10, i + rafterSpace, -10, "stroke:#000000");
+            carportSvg.addText(i + rafterSpace / 2, -15, 0, formatNr);
         }
-        carportSvg.addLine(0,-10,lengthTracker,-10,"stroke:#000000");
+        carportSvg.addLine(carportWidth+2.25,-10,carportWidth+2.25,10,"stroke:#000000");
     }
 
     @Override
