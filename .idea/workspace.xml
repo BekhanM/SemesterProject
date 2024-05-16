@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="predefined carports with links to site and homepagehtml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderlineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderlineMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="orders og stykliste 0.1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/CarportPartsCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024,_11_01_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024_10_43_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024_10_43__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2024__11_01__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Materials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderlineMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderlineMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="orders&amp;stykliste" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,6 +93,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -122,6 +128,8 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -146,6 +154,13 @@
       <workItem from="1714987766130" duration="813000" />
       <workItem from="1715155915307" duration="895000" />
       <workItem from="1715330712262" duration="396000" />
+      <workItem from="1715374584497" duration="325000" />
+      <workItem from="1715611639542" duration="685000" />
+      <workItem from="1715701475522" duration="19000" />
+      <workItem from="1715701501609" duration="2290000" />
+      <workItem from="1715721228709" duration="13014000" />
+      <workItem from="1715759737695" duration="16344000" />
+      <workItem from="1715847961630" duration="18675000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -217,6 +232,49 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="OttoDyva" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="OttoDyva" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding code structure and 3 classes" />
     <MESSAGE value="cp and stuff" />
@@ -224,6 +282,7 @@
     <MESSAGE value="Fixing usermapper" />
     <MESSAGE value="predefined carports with links to site and homepagehtml" />
     <MESSAGE value="adding makeyourowncarport.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding makeyourowncarport.html" />
+    <MESSAGE value="orders og stykliste 0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="orders og stykliste 0.1" />
   </component>
 </project>

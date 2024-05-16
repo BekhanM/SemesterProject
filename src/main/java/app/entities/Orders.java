@@ -1,22 +1,49 @@
 package app.entities;
 
 public class Orders {
-
     private int orderID;
     private int userID;
     private int totalPrice;
+    private int carportWidth;
+    private int carportLength;
+    private boolean roofTiles;
 
     public Orders(int orderID, int userID, int totalPrice) {
         this.orderID = orderID;
         this.userID = userID;
         this.totalPrice = totalPrice;
     }
+
+    public void setCarportLength(int carportLength) {
+        this.carportLength = carportLength;
+    }
+
+    public void setCarportWidth(int carportWidth) {
+        this.carportWidth = carportWidth;
+    }
+
+    public void setRoofTiles(boolean roofTiles) {
+        this.roofTiles = roofTiles;
+    }
+
     public int getOrderID() {
         return orderID;
     }
 
     public void setOrderID(int orderID) {
         this.orderID = orderID;
+    }
+
+    public int getCarportLength() {
+        return carportLength;
+    }
+
+    public int getCarportWidth() {
+        return carportWidth;
+    }
+
+    public boolean isRoofTiles() {
+        return roofTiles;
     }
 
     public int getUserID() {
@@ -41,6 +68,9 @@ public class Orders {
                 "orderID=" + orderID +
                 ", userID=" + userID +
                 ", totalPrice=" + totalPrice +
+                ", carportWidth=" + carportWidth +
+                ", carportLength=" + carportLength +
+                ", roofTiles=" + roofTiles +
                 '}';
     }
 }
