@@ -7,6 +7,8 @@ import app.controllers.UserController;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.services.MaterialsCalculator;
+import app.persistence.OrderMapper;
+import app.services.CarportPartsCalculator;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
@@ -28,7 +30,5 @@ public class Main {
         OrderController.addRoutes(app, connectionPool);
         CarportController.addRoutes(app, connectionPool);
         app.get("/", ctx -> ctx.render("homepage.html"));
-        int posts = MaterialsCalculator.calcNrOfPosts(780,600);
-        System.out.println(posts);
     }
 }

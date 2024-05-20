@@ -9,45 +9,43 @@ public class CarportSvg
     private Svg carportSvg;
 
     //----*** VARIABLES ***----//
-    private double carportLength = 600;
-    private double carportWidth = 780;
-    private  double colomnSpace = 260;
+    private double carportWidth;
+    private double carportLength;
+    private  double colomnSpace = 310;
     private  double columnStartVal= 110;
-    private  double rafterSpace = 55.714;
-    private String textX=String.valueOf(carportWidth);
-    private String textY= String.valueOf(carportLength);
+    private  double rafterSpace = 55;
+    private String textX="";
+    private String textY= "";
 
-   // private  double crossLineX1 = 55;
-   // private  double crossLineY1 = 35;
-   // private  double crossLineY2 = 569.5;
 
 
     //TODO Det er nogle variabler som har fast værdi, men skal nok skiftes ud med hensyn til regnestykke
 
     //-------------------------//
 
-    public CarportSvg( double carportLength,double carportWidth)
+    public CarportSvg(double carportWidth, double carportLength)
     {
-        this.carportLength = carportLength;
         this.carportWidth = carportWidth;
+        this.carportLength = carportLength;
         carportSvg = new Svg(0, 0, "-80 -50 1000 1000", "85%" );
-        carportSvg.addRectangle(0,0,carportLength, carportWidth, "stroke-width:1px; stroke:#000000; fill: #ffffff");
+        carportSvg.addRectangle(0,0, carportWidth, carportLength, "stroke-width:1px; stroke:#000000; fill: #ffffff");
+        textX=String.valueOf(carportLength);
+        textY= String.valueOf(carportWidth);
 
 
-
-        addBeams(carportWidth);
+        addBeams(carportLength);
         //addline SKAL VÆRE EFTER ADDBEAMS, Det er en weird bug
-        addCross(carportLength/*,crossLineX1,crossLineY1,crossLineY2*/);
+        addCross(carportWidth, carportLength /*,crossLineX1,crossLineY1,crossLineY2*/);
 
-        addXYArrow(carportLength,carportWidth);
+        addXYArrow(carportWidth, carportLength);
 
-        addRafterArrows(carportWidth,rafterSpace);
+        addRafterArrows(carportLength,rafterSpace);
 
-        addText(carportWidth,carportLength,textX,textY);
+        addText(carportLength, carportWidth,textX,textY);
 
-        addRafters(carportWidth,carportLength,rafterSpace);
+        addRafters(carportLength, carportWidth,rafterSpace);
 
-        addColumns(carportWidth,colomnSpace,columnStartVal);
+        addColumns(carportLength,colomnSpace,columnStartVal);
 
     }
 
@@ -56,10 +54,10 @@ public class CarportSvg
 
 
 
-    //-------------------------Vandrætt-----------------------------//
+    //-------------------------Vatnrætt-----------------------------//
     private void addBeams(double carportWidth){
         int spaceControl = 35;
-        double bottomStartSpace = carportLength-spaceControl;
+        double bottomStartSpace = this.carportWidth -spaceControl;
 
 
        carportSvg.addRectangle(0,spaceControl,4.5, carportWidth, "stroke-width:1px; stroke:#000000; fill: #ffffff");
@@ -80,15 +78,24 @@ public class CarportSvg
     //------------------------------------------------------------//
 
     private void addColumns(double carportWidth, double colomnSpace, double columnStartVal){
+            double remainingLength = carportWidth-colomnSpace;
 
-        for (double i = 0; i < carportWidth; i+= colomnSpace)
-        {
-            carportSvg.addRectangle(i+columnStartVal, 35.0, 9.7, 10,"stroke:#000000; fill: #ffffff" );
-        }
+            //Min post
+            carportSvg.addRectangle(0 , 35.0, 9.7, 10, "stroke:#000000; fill: #ffffff");
+            carportSvg.addRectangle(carportWidth-10 , 35.0, 9.7, 10, "stroke:#000000; fill: #ffffff");
+            carportSvg.addRectangle(0 , this.carportWidth - 39, 9.7, 10, "stroke:#000000; fill: #ffffff");
+            carportSvg.addRectangle(carportWidth-10 , this.carportWidth - 39, 9.7, 10, "stroke:#000000; fill: #ffffff");
 
-        for (double i = 0; i < carportWidth; i+= colomnSpace)
-        {
-            carportSvg.addRectangle(i+columnStartVal, 562.0, 9.7, 10,"stroke:#000000; fill: #ffffff" );
+        while(remainingLength>0){
+
+
+            carportSvg.addRectangle(colomnSpace, 35.0, 9.7, 10, "stroke:#000000; fill: #ffffff");
+
+            carportSvg.addRectangle(colomnSpace, this.carportWidth - 39, 9.7, 10, "stroke:#000000; fill: #ffffff");
+
+            remainingLength-=colomnSpace;
+
+            colomnSpace+=colomnSpace;
         }
     }
 
@@ -105,39 +112,45 @@ public class CarportSvg
 
 
 
-    private void addCross(double carportLength/*, double crosslineX1, double crossLineY1, double crossLineY2*/){
+    private void addCross(double carportLength,double carportWidth){
         double X1 = carportLength-55;
         double Y1= carportWidth-35;
 
         double crossLineX1 = carportLength-X1;
         double crossLineY1= carportWidth-Y1;
         double crossLineY2= carportLength-30.5;
+        double crossLineX2= carportWidth-30.5;
 
 
-        carportSvg.addLine(crossLineX1,crossLineY1,carportLength,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
-        carportSvg.addLine(carportLength,crossLineY1,crossLineX1,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
+        carportSvg.addLine(crossLineX1,crossLineY1,crossLineX2,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
+        carportSvg.addLine(crossLineX2,crossLineY1,crossLineX1,crossLineY2,"stroke:#000000; stroke-dasharray: 5 5;");
 
-
-        /*carportSvg.addLine(55,35,carportLength,569.5,"stroke:#000000; stroke-dasharray: 5 5;");
-        carportSvg.addLine(carportLength,35,55,569.5,"stroke:#000000; stroke-dasharray: 5 5;");*/
+        System.out.println(crossLineY2);
 
     }
     private void addText(double x, double y, String textX,String textY){
 
         carportSvg.addText(-60,y/2,-90, textY);
-        carportSvg.addText(x/2, carportLength+75,0,textX);
+        carportSvg.addText(x/2, carportWidth +75,0,textX);
 
 
     }
     private void addRafterArrows(double carportWidth, double rafterSpace) {
         DecimalFormat df = new DecimalFormat("#.#");
         String formatNr = df.format(rafterSpace);
-        for (double i = 2.25; i <= carportWidth; i += rafterSpace) {
+        double rafterDiscard = 0;
+        double iAmount = 0;
+        for (double i = 2.25; i <= carportWidth-55; i += rafterSpace) {
             carportSvg.addLine(i,-10,i,10,"stroke:#000000");
             carportSvg.addArrow(i, -10, i + rafterSpace, -10, "stroke:#000000");
             carportSvg.addText(i + rafterSpace / 2, -15, 0, formatNr);
+            rafterDiscard+=rafterSpace;
+            iAmount = i;
+
         }
-        carportSvg.addLine(carportWidth+2.25,-10,carportWidth+2.25,10,"stroke:#000000");
+        rafterDiscard = carportWidth-rafterDiscard;
+        iAmount = carportWidth-rafterDiscard;
+        carportSvg.addLine(iAmount+2.25,-10,iAmount+2.25,10,"stroke:#000000");
     }
 
     @Override
