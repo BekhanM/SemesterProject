@@ -54,4 +54,24 @@ public class Orderline {
                 ", materialID=" + materialID +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Orderline orderline)) return false;
+
+        if (getOrderlineID() != orderline.getOrderlineID()) return false;
+        if (getOrderID() != orderline.getOrderID()) return false;
+        if (getMaterialID() != orderline.getMaterialID()) return false;
+        return getAmountOfMaterials() == orderline.getAmountOfMaterials();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getOrderlineID();
+        result = 31 * result + getOrderID();
+        result = 31 * result + getMaterialID();
+        result = 31 * result + getAmountOfMaterials();
+        return result;
+    }
 }

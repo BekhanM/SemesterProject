@@ -32,4 +32,20 @@ public class Postnr {
                 ", city='" + city + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Postnr postnr)) return false;
+
+        if (getPostNr() != postnr.getPostNr()) return false;
+        return getCity().equals(postnr.getCity());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getPostNr();
+        result = 31 * result + getCity().hashCode();
+        return result;
+    }
 }

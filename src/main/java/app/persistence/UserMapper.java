@@ -77,7 +77,7 @@ public class UserMapper {
 
         List<User> userDetailsList = new ArrayList<>();
 
-        String sql = "SELECT * FROM users WHERE userID = ?";
+        String sql = "SELECT * FROM users WHERE \"userID\" = ?";
 
         try (
                 Connection connection = connectionPool.getConnection();

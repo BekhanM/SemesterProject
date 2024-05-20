@@ -73,4 +73,22 @@ public class Orders {
                 ", roofTiles=" + roofTiles +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Orders orders)) return false;
+
+        if (getOrderID() != orders.getOrderID()) return false;
+        if (getUserID() != orders.getUserID()) return false;
+        return getTotalPrice() == orders.getTotalPrice();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getOrderID();
+        result = 31 * result + getUserID();
+        result = 31 * result + getTotalPrice();
+        return result;
+    }
 }
