@@ -7,14 +7,18 @@ import app.persistence.OrderMapper;
 import app.persistence.OrderlineMapper;
 import app.persistence.MaterialMapper;
 import app.services.CarportPartsCalculator;
+import app.services.CarportSvg;
 import app.services.OrderService;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+
+import java.util.Locale;
 
 public class CarportController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("/makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
+        app.post("/showCarport",ctx-> showCarport(ctx));
         app.post("/calculateCarport", ctx -> calculateCarport(ctx, connectionPool));
     }
 
@@ -49,5 +53,13 @@ public class CarportController {
             ctx.attribute("message", "Kaput, kig i calccarport controller " + e.getMessage());
             ctx.render("makeyourowncarport.html");
         }
+    }
+   public static void showCarport(Context ctx)
+    {
+        Locale.setDefault(new Locale("US"));
+        CarportSvg svg = new CarportSvg(500, 500);
+
+        ctx.attribute("svg", svg.toString());
+        ctx.render("makeyourowncarport.html");
     }
 }
