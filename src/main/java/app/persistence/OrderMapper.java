@@ -1,6 +1,7 @@
 package app.persistence;
 
 import app.entities.Materials;
+import app.entities.OrderDetails;
 import app.entities.Orders;
 import app.exceptions.DatabaseException;
 
@@ -36,67 +37,48 @@ public class OrderMapper {
         }
     }
 
-    public static void addOrderline(int orderID, int materialID, int amount, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO orderline (\"orderID\", \"materialID\", \"amountofmaterial\") VALUES (?, ?, ?)";
+    public static List<OrderDetails> getUserOrdersWithDetails(int userID, ConnectionPool connectionPool) throws DatabaseException {
+        List<OrderDetails> orderDetailsList = new ArrayList<>();
 
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql);
-        ) {
-            ps.setInt(1, orderID);
-            ps.setInt(2, materialID);
-            ps.setInt(3, amount);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new DatabaseException("Database error in OrderMapper addOrderline", e.getMessage());
-        }
-    }
+        String sql = "SELECT o.\"orderID\", o.\"totalprice\", o.\"carportwidth\", o.\"carportlength\", " +
+                "ol.\"amountofmaterial\", m.\"name\", m.\"priceprmeter\", m.\"length\" " +
+                "FROM orders o " +
+                "JOIN orderline ol ON o.\"orderID\" = ol.\"orderID\" " +
+                "JOIN materials m ON ol.\"materialID\" = m.\"materialID\" " +
+                "WHERE o.\"userID\" = ?";
 
-    public static List<Materials> getMaterials(ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "SELECT * FROM materials";
-        List<Materials> materials = new ArrayList<>();
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
 
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery();
-        ) {
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+
             while (rs.next()) {
-                int materialID = rs.getInt("materialID");
-                String name = rs.getString("name");
-                int pricePrMeter = rs.getInt("priceprmeter");
-                int length = rs.getInt("length");
 
-                materials.add(new Materials(materialID, name, pricePrMeter, length));
+                int orderID = rs.getInt("orderID");
+                int totalPrice = rs.getInt("totalprice");
+                int carportWidth = rs.getInt("carportwidth");
+                int carportLength = rs.getInt("carportlength");
+                int amountOfMaterial = rs.getInt("amountofmaterial");
+                String materialName = rs.getString("name");
+                int pricePerMeter = rs.getInt("priceprmeter");
+                int materialLength = rs.getInt("length");
+
+
+                Materials material = new Materials(0, materialName, pricePerMeter, materialLength);
+
+
+                OrderDetails orderDetails = new OrderDetails(orderID, totalPrice, carportWidth, carportLength, amountOfMaterial, material);
+
+                orderDetailsList.add(orderDetails);
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Error fetching materials", e.getMessage());
+            throw new DatabaseException("Error retrieving order details for user " + userID, e.getMessage());
         }
-
-        return materials;
+        return orderDetailsList;
     }
 
-    public static List<Materials> selectMaterials(int carportLength, String name, ConnectionPool connectionPool) throws DatabaseException {
-        List<Materials> materials = getMaterials(connectionPool);
-        List<Materials> selectedMaterials = new ArrayList<>();
 
-        for (Materials material : materials) {
-            if (material.getName().equals(name) && material.getLength() >= carportLength) {
-                selectedMaterials.add(material);
-                break;
-            }
-        }
-
-        if (selectedMaterials.isEmpty()) {
-            throw new DatabaseException("No suitable material length found");
-        }
-
-        return selectedMaterials;
-    }
-
-    public static void updateMaterialQuantities(List<Materials> selectedMaterials, ConnectionPool connectionPool) throws DatabaseException {
-        // Update material quantities logic here if necessary
-    }
 
     public static List<Orders> getAllOrdersForSearchedUser(int userID, ConnectionPool connectionPool) throws DatabaseException {
         System.out.println("Du er nu i getAllOrdersForSearchedUser");

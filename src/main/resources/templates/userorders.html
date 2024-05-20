@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Orders</title>
+    <link href="../public/css/userOrdersStyles.css" th:href="@{/css/userOrdersStyles.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hej, <span th:text="${session.currentUser.firstname}"></span>! Det her er dine ordre indtil videre: </h1>
+
+    <div th:each="orderdetails : ${orderDetailsGroupedByOrderID}">
+        <div class="order-box">
+            <h2>Ordre Detaljer: </h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Total Pris</th>
+                    <th>Carport Længde</th>
+                    <th>Carport Bredde</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="total-price" th:text="${orderdetails.value[0].totalPrice} + ' DKK.'"></td>
+                    <td th:text="${orderdetails.value[0].carportWidth} + ' cm.'"></td>
+                    <td th:text="${orderdetails.value[0].carportLength} + ' cm.'"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>Materialer</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Antal</th>
+                    <th>Navn</th>
+                    <th>Pris Pr. Meter</th>
+                    <th>Længde</th>
+                    <th>Beskrivelse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order, stat : ${orderdetails.value}">
+                    <td th:text="${order.amountOfMaterial} + ' stk.'"></td>
+                    <td th:text="${order.material.name}"></td>
+                    <td th:text="${order.material.pricePrMeter} + ' DKK.'"></td>
+                    <td th:text="${order.material.length} + ' cm.'">.</td>
+                    <td th:text="${stat.index == 0 ? 'Stolper nedgraves 90 cm i jord' :
+                                  stat.index == 1 ? 'Remme i sider, sadles ned i stolper' :
+                                  stat.index == 2 ? 'Spær, monteres på rem' :
+                                  stat.index == 3 ? 'Ekstra remme materiale' :
+                                  ''}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
