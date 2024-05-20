@@ -35,9 +35,8 @@ public class Main {
         OrderMapper orderMapper = new OrderMapper();
         CarportPartsCalculator calculator = new CarportPartsCalculator(orderMapper, connectionPool);
 
-        calculator.calcCarportParts(userID, carportLength, carportWidth);
         System.out.println("Order saved for carport with length " + carportLength + " and width " + carportWidth);
-        app.get("/", ctx ->  ctx.render("homepage.html"));
+       // app.get("/", ctx ->  ctx.render("homepage.html"));
         app.get("/showCarport",ctx -> OrderController.showCarport(ctx));
     }
 }

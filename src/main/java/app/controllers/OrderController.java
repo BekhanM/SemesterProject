@@ -27,7 +27,7 @@ public class OrderController {
     public static void showCarport(Context ctx)
     {
         Locale.setDefault(new Locale("US"));
-        CarportSvg svg = new CarportSvg(600, 780);
+        CarportSvg svg = new CarportSvg(250, 500);
 
         ctx.attribute("svg", svg.toString());
         ctx.render("showCarport.html");
