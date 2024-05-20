@@ -13,7 +13,7 @@ import java.util.List;
 public class OrderMapper {
 
     public static int createOrderID(int userID, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO order (userID) VALUES ? RETURNING orderID";
+        String sql = "INSERT INTO orders (\"userID\") VALUES ? RETURNING \"orderID\"";
 
         try (
                 Connection connection = connectionPool.getConnection();

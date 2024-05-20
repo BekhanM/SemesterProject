@@ -51,7 +51,6 @@ public class User {
     public String getBy() {
         return by;
     }
-
     public int getTlfnr() {
         return tlfnr;
     }
@@ -110,5 +109,37 @@ public class User {
                 ", city='" + by + '\'' +
                 ", tlfnr=" + tlfnr +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+
+        if (getUserID() != user.getUserID()) return false;
+        if (getPostnr() != user.getPostnr()) return false;
+        if (getTlfnr() != user.getTlfnr()) return false;
+        if (!getEmail().equals(user.getEmail())) return false;
+        if (!getPassword().equals(user.getPassword())) return false;
+        if (!getRole().equals(user.getRole())) return false;
+        if (!getFirstName().equals(user.getFirstName())) return false;
+        if (!getLastName().equals(user.getLastName())) return false;
+        if (!getAdresse().equals(user.getAdresse())) return false;
+        return getBy().equals(user.getBy());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getUserID();
+        result = 31 * result + getEmail().hashCode();
+        result = 31 * result + getPassword().hashCode();
+        result = 31 * result + getRole().hashCode();
+        result = 31 * result + getFirstName().hashCode();
+        result = 31 * result + getLastName().hashCode();
+        result = 31 * result + getAdresse().hashCode();
+        result = 31 * result + getPostnr();
+        result = 31 * result + getBy().hashCode();
+        result = 31 * result + getTlfnr();
+        return result;
     }
 }

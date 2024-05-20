@@ -88,4 +88,30 @@ private int heigth;
                 ", heigth=" + heigth +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Materials materials)) return false;
+
+        if (getQuantity() != materials.getQuantity()) return false;
+        if (getPricePrMeter() != materials.getPricePrMeter()) return false;
+        if (getLength() != materials.getLength()) return false;
+        if (getWidth() != materials.getWidth()) return false;
+        if (getHeigth() != materials.getHeigth()) return false;
+        if (!getMaterialID().equals(materials.getMaterialID())) return false;
+        return getName().equals(materials.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getMaterialID().hashCode();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getQuantity();
+        result = 31 * result + getPricePrMeter();
+        result = 31 * result + getLength();
+        result = 31 * result + getWidth();
+        result = 31 * result + getHeigth();
+        return result;
+    }
 }
