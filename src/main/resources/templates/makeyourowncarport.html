@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make your own carport</title>
-    <link rel="stylesheet" href="../public/css/styles.css" th:href="@{/css/styles.css}">
-
+    <title>Carport Template</title>
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -13,85 +12,101 @@
     <div class="center-content">
         <div class="carport-customization">
             <p>Bestil Quick-Byg tilbud - carport med fladt tag!</p>
-            <form id="carportForm">
+            <form id="carportForm" onsubmit="showOrderConfirmation(event)">
+
                 <label for="carportWidth">Carport Bredde:</label>
-                <select id="carportWidth">
-                    <option value ="240"> 240 cm</option>
-                    <option value ="270"> 270 cm</option>
-                    <option value ="300"> 300 cm</option>
-                    <option value ="330"> 330 cm</option>
-                    <option value ="360"> 360 cm</option>
-                    <option value ="390"> 390 cm</option>
-                    <option value ="420"> 420 cm</option>
-                    <option value ="450"> 450 cm</option>
-                    <option value ="480"> 480 cm</option>
-                    <option value ="510"> 510 cm</option>
-                    <option value ="540"> 540 cm</option>
-                    <option value ="570"> 570 cm</option>
-                    <option value ="600"> 600 cm</option>
+                <select id="carportWidth" name="carportWidth">
+                    <option value="240">240 cm</option>
+                    <option value="270">270 cm</option>
+                    <option value="300">300 cm</option>
+                    <option value="330">330 cm</option>
+                    <option value="360">360 cm</option>
+                    <option value="390">390 cm</option>
+                    <option value="420">420 cm</option>
+                    <option value="450">450 cm</option>
+                    <option value="480">480 cm</option>
+                    <option value="510">510 cm</option>
+                    <option value="540">540 cm</option>
+                    <option value="570">570 cm</option>
+                    <option value="600">600 cm</option>
                 </select>
 
                 <label for="carportLength">Carport Længde:</label>
-                <select id="carportLength">
-                    <option value ="240"> 240 cm</option>
-                    <option value ="270"> 270 cm</option>
-                    <option value ="300"> 300 cm</option>
-                    <option value ="330"> 330 cm</option>
-                    <option value ="360"> 360 cm</option>
-                    <option value ="390"> 390 cm</option>
-                    <option value ="420"> 420 cm</option>
-                    <option value ="450"> 450 cm</option>
-                    <option value ="480"> 480 cm</option>
-                    <option value ="510"> 510 cm</option>
-                    <option value ="540"> 540 cm</option>
-                    <option value ="570"> 570 cm</option>
-                    <option value ="600"> 600 cm</option>
-                    <option value ="630"> 630 cm</option>
-                    <option value ="660"> 660 cm</option>
-                    <option value ="690"> 690 cm</option>
-                    <option value ="720"> 720 cm</option>
-                    <option value ="750"> 750 cm</option>
-                    <option value ="780"> 780 cm</option>
+                <select id="carportLength" name="carportLength">
+                    <option value="240">240 cm</option>
+                    <option value="270">270 cm</option>
+                    <option value="300">300 cm</option>
+                    <option value="330">330 cm</option>
+                    <option value="360">360 cm</option>
+                    <option value="390">390 cm</option>
+                    <option value="420">420 cm</option>
+                    <option value="450">450 cm</option>
+                    <option value="480">480 cm</option>
+                    <option value="510">510 cm</option>
+                    <option value="540">540 cm</option>
+                    <option value="570">570 cm</option>
+                    <option value="600">600 cm</option>
+                    <option value="630">630 cm</option>
+                    <option value="660">660 cm</option>
+                    <option value="690">690 cm</option>
+                    <option value="720">720 cm</option>
+                    <option value="750">750 cm</option>
+                    <option value="780">780 cm</option>
                 </select>
 
                 <label for="roofMaterial">Carport trapeztag:</label>
-                <select id="roofMaterial">
+                <select id="roofMaterial" name="roofMaterial">
                     <option value="noroofmaterial">Uden tagplader</option>
                     <option value="yesroofmaterial">Plasttrapezplader</option>
                 </select>
 
-                <button type="button" onclick="saveCarport()">Save Selections</button>
+                <button type="submit">Se Bestilling</button>
             </form>
         </div>
     </div>
 </div>
 
-<div class =""> </div>
+<div class="boxcontent" id="confirmationSection" style="display:none;">
+    <div class="center-content">
+        <h1>Order Confirmation</h1>
+        <p id="orderDetails"></p>
+        <p>MÅSKE PUTTE ET FLOT SVG SKITSE HER ET STED</p>
+        <form id="finalOrderForm" method="post" action="/calculateCarport">
+            <input type="hidden" id="carportLengthConfirm" name="carportLength">
+            <input type="hidden" id="carportWidthConfirm" name="carportWidth">
+            <input type="hidden" id="roofMaterialConfirm" name="roofMaterial">
+            <button type="submit">Bekræft Bestilling og betal.</button>
+        </form>
+        <button type="button" onclick="goBack()">Rediger Bestilling</button>
+        <a href="/">Vend tilbage til forsiden. </a>
+    </div>
+</div>
+
+<!-- Se denne video for forklaring af events, boys. Godt at have styr på: https://www.youtube.com/watch?v=_QVcbmGqm2o -->
 
 <script>
-    function saveCarport() {
+    function showOrderConfirmation(event) {
+        event.preventDefault();
+
         var carportLength = document.getElementById("carportLength").value;
         var carportWidth = document.getElementById("carportWidth").value;
-        var roofingMaterial = document.getElementById("roofMaterial").value;
+        var roofMaterial = document.getElementById("roofMaterial").value;
 
-        localStorage.setItem('carportLength', carportLength);
-        localStorage.setItem('carportWidth', carportWidth);
-        localStorage.setItem('roofMaterial', roofingMaterial);
+        document.getElementById("carportLengthConfirm").value = carportLength;
+        document.getElementById("carportWidthConfirm").value = carportWidth;
+        document.getElementById("roofMaterialConfirm").value = roofMaterial;
+
+        var roofMaterialText = roofMaterial === 'yesroofmaterial' ? 'Plasttrapezplader' : 'Uden tagplader';
+        document.getElementById("orderDetails").innerText = `Carport Længde: ${carportLength} cm, Carport Bredde: ${carportWidth} cm, Tagmateriale: ${roofMaterialText}`;
+
+        document.getElementById("confirmationSection").style.display = 'block';
+        document.querySelector(".carport-customization").style.display = 'none';
     }
 
-    function getSavedCarport() {
-        var savedCarportLength = localStorage.getItem('carportLength');
-        var savedCarportWidth = localStorage.getItem('carportWidth');
-        var savedRoofingMaterial = localStorage.getItem('roofMaterial');
-
-        if (savedCarportLength && savedCarportWidth && savedRoofingMaterial) {
-            document.getElementById("carportLength").value = savedCarportLength;
-            document.getElementById("carportWidth").value = savedCarportWidth;
-            document.getElementById("roofMaterial").value = savedRoofingMaterial;
-        }
+    function goBack() {
+        document.getElementById("confirmationSection").style.display = 'none';
+        document.querySelector(".carport-customization").style.display = 'block';
     }
-
-    getSavedCarport();
 </script>
 
 </body>

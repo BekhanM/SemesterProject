@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class OrderlineMapper {
 
-    public static void createOrderline(int orderID, int materialID, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO orderline (\"orderID\", \"materialID\") VALUES (?, ?)";
+    public static void addOrderline(int orderID, int materialID, int amount, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO orderline (\"orderID\", \"materialID\", \"amountofmaterial\") VALUES (?, ?, ?)";
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -17,12 +17,10 @@ public class OrderlineMapper {
         ) {
             ps.setInt(1, orderID);
             ps.setInt(2, materialID);
-            int rowsAffected = ps.executeUpdate();
-            if (rowsAffected != 1) {
-                throw new DatabaseException("Fejl ved createOrderline");
-            }
+            ps.setInt(3, amount);
+            ps.executeUpdate();
         } catch (SQLException e) {
-            throw new DatabaseException("Fejl ved createOrderline", e.getMessage());
+            throw new DatabaseException("Database error in OrderMapper addOrderline", e.getMessage());
         }
     }
 }

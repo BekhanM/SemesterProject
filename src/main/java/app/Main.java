@@ -1,12 +1,11 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.CarportController;
 import app.controllers.OrderController;
 import app.controllers.UserController;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.OrderMapper;
-import app.services.CarportPartsCalculator;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
@@ -26,16 +25,7 @@ public class Main {
 
         UserController.addRoutes(app, connectionPool);
         OrderController.addRoutes(app, connectionPool);
+        CarportController.addRoutes(app, connectionPool);
         app.get("/", ctx -> ctx.render("homepage.html"));
-
-        //////////////////////////////////////////////// TEST /////////////////////////////////////////////////////////
-        int carportLength = 600;
-        int carportWidth = 600;
-        int userID = 1;
-        OrderMapper orderMapper = new OrderMapper();
-        CarportPartsCalculator calculator = new CarportPartsCalculator(orderMapper, connectionPool);
-
-        calculator.calcCarportParts(userID, carportLength, carportWidth);
-        System.out.println("Order saved for carport with length " + carportLength + " and width " + carportWidth);
     }
 }

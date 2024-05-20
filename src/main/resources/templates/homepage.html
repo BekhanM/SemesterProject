@@ -22,6 +22,9 @@
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Opret bruger</button>
     </p>
+    <p th:if="${session.currentUser != null}">
+        <button onclick="window.location.href='/userorders'" style="width:auto;">Mine Ordre.</button>
+    </p>
 </div>
 
 <div id="id01" class="modal">
@@ -33,14 +36,14 @@
 
         <div class="container" method="post">
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            <input type="text" placeholder="Indtast Email" name="email" id="email" required>
 
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+            <label for="password"><b>Kodeord</b></label>
+            <input type="password" placeholder="Indtast Kodeord" name="password" id="password" required>
 
             <button type="submit" formaction="/login">Login</button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox" checked="checked" name="remember"> Husk Mig
             </label>
         </div>
 
@@ -63,35 +66,35 @@
 
         <div class="container" method="post">
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Skriv Email" name="email" id="email2" required>
+            <input type="text" placeholder="Indtast Email" name="email" id="email2" required>
 
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Skriv Password" name="password1" id="password1" required>
+            <input type="password" placeholder="Indtast Kodeord" name="password1" id="password1" required>
 
             <label for="password2"><b>Password2</b></label>
-            <input type="password" placeholder="Skriv Password igen" name="password2" id="password2" required>
+            <input type="password" placeholder="Indtast Kodeord Igen" name="password2" id="password2" required>
 
             <label for="firstname"><b>Fornavn</b></label>
-            <input type="text" placeholder="Skriv fornavn" name="firstname" id="firstname" required>
+            <input type="text" placeholder="Indtast Fornavn" name="firstname" id="firstname" required>
 
             <label for="lastname"><b>Efternavn</b></label>
-            <input type="text" placeholder="Skriv efternavn" name="lastname" id="lastname" required>
+            <input type="text" placeholder="Indtast Efternavn" name="lastname" id="lastname" required>
 
             <label for="adresse"><b>Adresse</b></label>
-            <input type="text" placeholder="Skriv adresse" name="adresse" id="adresse" required>
+            <input type="text" placeholder="Indtast Adresse" name="adresse" id="adresse" required>
 
-            <label for="postnr"><b>Postnr</b></label>
-            <input type="text" placeholder="Skriv postnr" name="postnr" id="postnr" required>
+            <label for="postnr"><b>Postnummer</b></label>
+            <input type="text" placeholder="Indtast Postnummer" name="postnr" id="postnr" required>
 
             <label for="city"><b>By</b></label>
-            <input type="text" placeholder="Skriv bynavn" name="city" id="city" required>
+            <input type="text" placeholder="Indtast Bynavn" name="city" id="city" required>
 
             <label for="tlfnr"><b>Telefonnummer</b></label>
-            <input type="text" placeholder="Skriv telefonnummer" name="tlfnr" id="tlfnr" required>
+            <input type="text" placeholder="Indtast Telefonnummer" name="tlfnr" id="tlfnr" required>
 
             <button type="submit" formaction="/createuser">Opret bruger</button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox" checked="checked" name="remember"> Husk Mig
             </label>
         </div>
 
@@ -122,7 +125,12 @@
 </script>
 
 <div class="options">
-    <a href="makeyourowncarport.html" th:href="@{makeyourowncarport}">Lav din egen carport</a>
+    <div th:if="${session.currentUser != null}">
+        <a href="makeyourowncarport.html" th:href="@{makeyourowncarport}">Lav din egen carport</a>
+    </div>
+    <div th:if="${session.currentUser == null}">
+        <a href="#" onclick="alert('Vi har brug for information om dig. Venligst log ind eller opret en bruger.');">Lav din egen carport</a>
+    </div>
 </div>
 
 <div class="carport-container" >
