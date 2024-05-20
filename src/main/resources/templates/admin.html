@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdminPage</title>
-    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link href="../public/css/adminStyles.css" th:href="@{/css/adminStyles.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -24,13 +24,35 @@
     <a href="orderlist.html" th:href="@{orderlist}">Se brugeres ordre</a>
 </div>
 
-<form th:action="@{/admin}" method="post">
+<form th:action="@{/admin}" method="post" class="admin-form">
     <label for="email">Enter User Email:</label>
     <input type="text" id="email" name="email" required>
     <button type="submit">Search</button>
 </form>
 
-<table>
+<div th:each="users : ${allUsers}">
+    <div class="order-box">
+        <h2>User Detaljer: </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>UserID</th>
+                <th>Email</th>
+                <th>Fornavn</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${users.userID}"></td>
+                <td th:text="${users.email}"></td>
+                <td th:text="${users.firstname}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<table class="user-table">
     <thead>
     <tr>
         <th>UserID</th>
@@ -47,7 +69,7 @@
     </thead>
     <tbody>
     <tr th:each="users : ${userList}">
-        <td th:text="${users.userID}"></td>"
+        <td th:text="${users.userID}"></td>
         <td th:text="${users.email}"></td>
         <td th:text="${users.password}"></td>
         <td th:text="${users.role}"></td>
@@ -59,7 +81,7 @@
         <td th:text="${users.tlfnr}"></td>
         <td>
             <form action="@{/removeUser}" th:action="@{/removeuser}" method="post">
-                <button type="submit"  name="userID" th:value="${users.userID}">Remove</button>
+                <button type="submit" name="userID" th:value="${users.userID}">Remove</button>
             </form>
         </td>
     </tr>

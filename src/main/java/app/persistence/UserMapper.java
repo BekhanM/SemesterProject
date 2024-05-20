@@ -1,5 +1,6 @@
 package app.persistence;
 
+import app.entities.Materials;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 
@@ -140,6 +141,37 @@ public class UserMapper {
         }
 
         return userDetailsList;
+    }
+
+    public static List<User> showAllUsers(ConnectionPool connectionPool) throws DatabaseException {
+        System.out.println("Du er nu i showAllUsers i UserMapper");
+        String sql = "SELECT * FROM users";
+        List<User> allUsers = new ArrayList<>();
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int ID = rs.getInt("userID");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String adresse = rs.getString("adresse");
+                int postnr = rs.getInt("postnr");
+                String by = rs.getString("by");
+                int tlfnr = rs.getInt("tlfnr");
+                User userDetails = new User(ID, email, password, role, firstname, lastname, adresse, postnr, by, tlfnr);
+                allUsers.add(userDetails);
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Database error while retrieving all user details", e.getMessage());
+        }
+
+        return allUsers;
     }
 
     public static void removeUser(int userID, ConnectionPool connectionPool) throws DatabaseException {

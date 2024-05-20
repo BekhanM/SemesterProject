@@ -17,24 +17,31 @@
 </div>
 
 <div class="welcome-box">
-    <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.firstname}"></span>!</p>
+    <p th:if="${session.currentUser != null}">
+        Velkommen, <span th:text="${session.currentUser.firstname}"></span>!
+    </p>
     <p th:if="${session.currentUser == null}">
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Opret bruger</button>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Opret bruger</button>
     </p>
     <p th:if="${session.currentUser != null}">
         <button onclick="window.location.href='/userorders'" style="width:auto;">Mine Ordre.</button>
     </p>
+
+    <div th:if="${session.currentUser != null}">
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" name="logout" style="width: auto;">Logout</button>
+        </form>
+    </div>
 </div>
 
 <div id="id01" class="modal">
-
     <form class="modal-content animate" action="/templates/login.html" method="post">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
 
-        <div class="container" method="post">
+        <div class="container">
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Indtast Email" name="email" id="email" required>
 
@@ -47,10 +54,6 @@
             </label>
         </div>
 
-        <div th:if="${session.currentUser != null}">
-            <span th:text="${session.currentUser.email}"></span> |
-        </div>
-
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
@@ -58,13 +61,12 @@
 </div>
 
 <div id="id02" class="modal">
-
     <form class="modal-content animate" action="/templates/login.html" method="post">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
 
-        <div class="container" method="post">
+        <div class="container">
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Indtast Email" name="email" id="email2" required>
 
@@ -105,39 +107,34 @@
 </div>
 
 <script>
-    const modal = document.getElementById('id01');
+    const modal1 = document.getElementById('id01');
+    const modal2 = document.getElementById('id02');
 
     window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        if (event.target === modal1) {
+            modal1.style.display = "none";
         }
-    }
-</script>
-
-<script>
-    const modal = document.getElementById('id02');
-
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        if (event.target === modal2) {
+            modal2.style.display = "none";
         }
     }
 </script>
 
 <div class="options">
     <div th:if="${session.currentUser != null}">
-        <a href="makeyourowncarport.html" th:href="@{makeyourowncarport}">Lav din egen carport</a>
+        <a class="stylish-button" th:href="@{/makeyourowncarport}">Lav din egen carport</a>
     </div>
     <div th:if="${session.currentUser == null}">
-        <a href="#" onclick="alert('Vi har brug for information om dig. Venligst log ind eller opret en bruger.');">Lav din egen carport</a>
+        <button class="stylish-button" onclick="alert('Vi har brug for information om dig. Venligst log ind eller opret en bruger.');">Lav din egen carport</button>
     </div>
 </div>
 
-<div class="carport-container" >
-    <div class="carport" >
+
+<div class="carport-container productgrid">
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-6-00x5-40-m-car01dr-00822"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-6-00x5-40-m-car01dr-00822}">
-        <img alt="carport img" src="../public/images/img.png" th:src="@{/images/img.png}">
+            <img alt="carport img" src="../public/images/img.png" th:src="@{/images/img.png}">
         </a>
         <div class="carport-info">
             <h2>ENKELT CARPORT 6,00X5,40 M MED REDSKABSRUM OG TØRREPLADS, FLADT TAG</h2>
@@ -145,7 +142,7 @@
         </div>
     </div>
 
-    <div class="carport" >
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x4-80-m-car01du-00821"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x4-80-m-car01du-00821}">
             <img alt="carport img" src="../public/images/carport1.png" th:src="@{/images/carport1.png}">
@@ -156,7 +153,7 @@
         </div>
     </div>
 
-    <div class="carport" >
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x7-80-m-cp01dur-00823"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x7-80-m-cp01dur-00823}">
             <img alt="carport img" src="../public/images/carport2.png" th:src="@{/images/carport2.png}">
@@ -167,7 +164,7 @@
         </div>
     </div>
 
-    <div class="carport" >
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-00x4-80-m-car01-00816"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-00x4-80-m-car01-00816}">
             <img alt="carport img" src="../public/images/carport3.png" th:src="@{/images/carport3.png}">
@@ -178,7 +175,7 @@
         </div>
     </div>
 
-    <div class="carport" >
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x9-90-m-cp02hxl-9116206"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x9-90-m-cp02hxl-9116206}">
             <img alt="carport img" src="../public/images/carport4.png" th:src="@{/images/carport4.png}">
@@ -200,7 +197,7 @@
         </div>
     </div>
 
-    <div class="carport" >
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x7-20-m-car01hr-9116200"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x7-20-m-car01hr-9116200}">
             <img alt="carport img" src="../public/images/carport5.png" th:src="@{/images/carport5.png}">
@@ -211,7 +208,7 @@
         </div>
     </div>
 
-    <div class="carport" >
+    <div class="carport">
         <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x8-10-m-carl01hr-9116201"
            th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x8-10-m-carl01hr-9116201}">
             <img alt="carport img" src="../public/images/carport6.png" th:src="@{/images/carport6.png}">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orderlist</title>
-    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link href="../public/css/orderlistStyles.css" th:href="@{/css/orderlistStyles.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -21,33 +21,33 @@
 </div>
 <p>Du på orderlist</p>
 
-<form th:action="@{/orderlist}" method="post">
+<form th:action="@{/orderlist}" method="post" class="orderlist-form">
     <label for="userID">Enter User ID:</label>
     <input type="text" id="userID" name="userID" required>
     <button type="submit">Search</button>
 </form>
 
-    <table>
-        <thead>
-        <tr>
-            <th>OrderID</th>
-            <th>UserID</th>
-            <th>Total Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="orders : ${orderList}">
-            <td th:text="${orders.orderID}"></td>
-            <td th:text="${orders.userID}"></td>
-            <td th:text="${orders.totalprice + ' DKK'}"></td>
-            <td>
-                <form action="@{/removeOrder}" th:action="@{/removeorder}" method="post">
-                    <button type="submit"  name="orderID" th:value="${orders.orderID}">Remove</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<table class="order-table">
+    <thead>
+    <tr>
+        <th>OrderID</th>
+        <th>UserID</th>
+        <th>Total Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="orders : ${orderList}">
+        <td th:text="${orders.orderID}"></td>
+        <td th:text="${orders.userID}"></td>
+        <td th:text="${orders.totalprice + ' DKK'}"></td>
+        <td>
+            <form action="@{/removeOrder}" th:action="@{/removeorder}" method="post">
+                <button type="submit"  name="orderID" th:value="${orders.orderID}">Remove</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

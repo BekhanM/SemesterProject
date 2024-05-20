@@ -20,7 +20,8 @@ public class UserController {
         app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
         app.get("admin", ctx -> ctx.render("admin.html"));
         app.post("removeuser", ctx -> removeUser(ctx, connectionPool));
-
+        app.post("logout", ctx -> logout(ctx));
+        app.post("allUsers", ctx -> showAllUsers(ctx, connectionPool));
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) {
@@ -177,6 +178,19 @@ public class UserController {
             List<User> userList = UserMapper.getAllUsersDetail(userEmail, connectionPool);
             ctx.attribute("userList", userList);
             ctx.render("admin.html");
+        } catch (DatabaseException e) {
+            ctx.status(500).result("Error retrieving user details: " + e.getMessage());
+        }
+    }
+
+    public static void showAllUsers(Context ctx, ConnectionPool connectionPool) {
+        System.out.println("DU ER I SHOWALL USERSCONTROLLER");
+
+        try {
+            List<User> allUsers = UserMapper.showAllUsers(connectionPool);
+            ctx.attribute("allUsers", allUsers);
+            ctx.render("admin.html");
+
         } catch (DatabaseException e) {
             ctx.status(500).result("Error retrieving user details: " + e.getMessage());
         }
