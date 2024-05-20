@@ -31,6 +31,5 @@ public class Main {
         CarportController.addRoutes(app, connectionPool);
         app.get("/", ctx -> ctx.render("homepage.html"));
 
-        app.get("/showCarport",ctx -> OrderController.showCarport(ctx));
     }
 }
