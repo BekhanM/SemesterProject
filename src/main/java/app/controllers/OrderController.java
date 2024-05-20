@@ -35,7 +35,7 @@ public class OrderController {
         CarportSvg svg = new CarportSvg(250, 500);
 
         ctx.attribute("svg", svg.toString());
-        ctx.render("showCarport.html");
+        ctx.render("makeyourowncarport.html");
     }
 
     public static void makeOrder(Context ctx, ConnectionPool connectionPool) {

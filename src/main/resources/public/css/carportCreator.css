@@ -123,3 +123,8 @@ a:hover {
 #finalOrderForm {
     margin-top: 20px;
 }
+.carport-svg-topview {
+    padding: 50px;
+    max-width: 800px;
+    margin: auto;
+}

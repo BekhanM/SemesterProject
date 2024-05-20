@@ -73,6 +73,12 @@
             <h1>Order Confirmation</h1>
             <p id="orderDetails"></p>
             <p>MÅSKE PUTTE ET FLOT SVG SKITSE HER ET STED</p>
+
+            <div class="carport-svg-topview">
+                <div th:utext="${svg}"></div>
+            </div>
+
+
             <form id="finalOrderForm" method="post" action="/calculateCarport">
                 <input type="hidden" id="carportLengthConfirm" name="carportLength">
                 <input type="hidden" id="carportWidthConfirm" name="carportWidth">
