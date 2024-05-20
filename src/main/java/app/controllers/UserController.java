@@ -44,7 +44,7 @@ public class UserController {
                 ctx.attribute("message", "Username already exists.");
                 ctx.render("homepage.html");
             }
-        } else if (email.equals(null)){
+        } else if (email.equals(null)) {
             ctx.attribute("message", "The passwords need to match.");
             ctx.render("homepage.html");
         } else {
@@ -79,7 +79,7 @@ public class UserController {
 
         } catch (DatabaseException e) {
             //Hvis nej, send tilbage til login side med fejl besked
-            ctx.attribute("message", e.getMessage());
+            ctx.attribute("Fejl i login. Prøv igen.", e.getMessage());
             ctx.render("homepage.html");
         }
     }
@@ -193,6 +193,4 @@ public class UserController {
             ctx.status(500).result("Error removing user: " + e.getMessage());
         }
     }
-
-
 }

@@ -4,19 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="adding getAllOrdersForSearchedUser, removeUser and removeOrder">
-      <change afterPath="$PROJECT_DIR$/src/test/java/app/persistence/UserMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="Orders, beregner, stykliste, orderdetails v3.0 BIG UPDATE">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/css/adminStyles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/css/carportCreator.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/css/orderlistStyles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/images/carport7.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Materials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Materials.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orderline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/Postnr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/Postnr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/MaterialsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/MaterialsCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/userOrdersStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/userOrdersStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orderconfirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orderconfirmation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userorders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userorders.html" afterDir="false" />
+    </list>
+    <list id="513aa9c3-d739-4cec-a5dc-fe9968c40484" name="Changes by ottodyva" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/app/persistence/OrderMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/app/persistence/OrderMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/orderlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/orderlist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +37,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -58,6 +69,54 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
+      <ranges>
+        <range start1="22" end1="23" start2="22" end2="24" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="46" end1="47" start2="47" end2="48" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="183" end1="183" start2="184" end2="197" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="195" end1="197" start2="209" end2="209" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="198" end1="199" start2="210" end2="210" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/resources/templates/homepage.html">
+      <ranges>
+        <range start1="19" end1="20" start2="19" end2="22" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="21" end1="23" start2="23" end2="25" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="27" end1="27" start2="29" end2="35" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="30" end1="31" start2="38" end2="38" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="36" end1="37" start2="43" end2="44" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="48" end1="52" start2="55" end2="55" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="60" end1="61" start2="63" end2="63" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="66" end1="67" start2="68" end2="69" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="107" end1="108" start2="109" end2="111" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="110" end1="112" start2="113" end2="115" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="113" end1="122" start2="116" end2="118" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="128" end1="129" start2="124" end2="125" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="131" end1="132" start2="127" end2="128" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="135" end1="137" start2="131" end2="134" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="139" end1="140" start2="136" end2="137" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="143" end1="144" start2="140" end2="141" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="147" end1="148" start2="144" end2="145" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="154" end1="155" start2="151" end2="152" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="158" end1="159" start2="155" end2="156" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="165" end1="166" start2="162" end2="163" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="169" end1="170" start2="166" end2="167" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="176" end1="177" start2="173" end2="174" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="180" end1="181" start2="177" end2="178" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="187" end1="188" start2="184" end2="185" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="190" end1="190" start2="187" end2="198" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="191" end1="192" start2="199" end2="200" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="198" end1="199" start2="206" end2="207" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="202" end1="203" start2="210" end2="211" changelist="513aa9c3-d739-4cec-a5dc-fe9968c40484" />
+        <range start1="209" end1="210" start2="217" end2="218" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+        <range start1="212" end1="212" start2="220" end2="222" changelist="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showToolbar" value="false" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -69,44 +128,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JUnit.OrderMapperTest.createOrderID.executor": "Run",
-    "JUnit.OrderMapperTest.executor": "Run",
-    "JUnit.OrderMapperTest.getAllOrdersForSearchedUser.executor": "Run",
-    "JUnit.OrderMapperTest.removeOrder.executor": "Run",
-    "JUnit.UserMapperTest.createuser.executor": "Run",
-    "JUnit.UserMapperTest.executor": "Run",
-    "JUnit.UserMapperTest.getUserDetails.executor": "Run",
-    "JUnit.UserMapperTest.login.executor": "Run",
-    "JavaScript Debug.admin.html.executor": "Run",
-    "JavaScript Debug.homepage.html.executor": "Run",
-    "JavaScript Debug.login.html.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "testBranch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.admin.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.homepage.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.login.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowProblems.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -121,7 +172,7 @@
       <recent name="app.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
       <module name="SemesterProject" />
@@ -135,148 +186,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="SemesterProject" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SemesterProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.persistence.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.10/Contents/Home" />
-      <option name="PACKAGE_NAME" value="app.persistence" />
-      <option name="MAIN_CLASS_NAME" value="app.persistence.UserMapperTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <envs>
-        <env name="DEPLOYED" value="PROD" />
-        <env name="JDBC_CONNECTION_STRING" value="jdbc:postgresql://64.226.120.63:5432/%s?currentSchema=test" />
-        <env name="JDBC_DB" value="Fog" />
-        <env name="JDBC_PASSWORD" value="gruppebroersej" />
-        <env name="JDBC_USER" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserMapperTest.createuser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SemesterProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.persistence.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.10/Contents/Home" />
-      <option name="PACKAGE_NAME" value="app.persistence" />
-      <option name="MAIN_CLASS_NAME" value="app.persistence.UserMapperTest" />
-      <option name="METHOD_NAME" value="createuser" />
-      <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="DEPLOYED" value="PROD" />
-        <env name="JDBC_CONNECTION_STRING" value="jdbc:postgresql://64.226.120.63:5432/%s?currentSchema=test" />
-        <env name="JDBC_DB" value="Fog" />
-        <env name="JDBC_PASSWORD" value="gruppebroersej" />
-        <env name="JDBC_USER" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserMapperTest.getUserDetails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SemesterProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.persistence.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.10/Contents/Home" />
-      <option name="PACKAGE_NAME" value="app.persistence" />
-      <option name="MAIN_CLASS_NAME" value="app.persistence.UserMapperTest" />
-      <option name="METHOD_NAME" value="getUserDetails" />
-      <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="DEPLOYED" value="PROD" />
-        <env name="JDBC_CONNECTION_STRING" value="jdbc:postgresql://64.226.120.63:5432/%s?currentSchema=test" />
-        <env name="JDBC_DB" value="Fog" />
-        <env name="JDBC_PASSWORD" value="gruppebroersej" />
-        <env name="JDBC_USER" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserMapperTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SemesterProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.persistence.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.10/Contents/Home" />
-      <option name="PACKAGE_NAME" value="app.persistence" />
-      <option name="MAIN_CLASS_NAME" value="app.persistence.UserMapperTest" />
-      <option name="METHOD_NAME" value="login" />
-      <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="DEPLOYED" value="PROD" />
-        <env name="JDBC_CONNECTION_STRING" value="jdbc:postgresql://64.226.120.63:5432/%s?currentSchema=test" />
-        <env name="JDBC_DB" value="Fog" />
-        <env name="JDBC_PASSWORD" value="gruppebroersej" />
-        <env name="JDBC_USER" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <module name="SemesterProject" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.10/Contents/Home" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <envs>
-        <env name="DEPLOYED" value="PROD" />
-        <env name="JDBC_CONNECTION_STRING" value="jdbc:postgresql://64.226.120.63:5432/%s?currentSchema=test" />
-        <env name="JDBC_DB" value="Fog" />
-        <env name="JDBC_PASSWORD" value="gruppebroersej" />
-        <env name="JDBC_USER" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.Unnamed" />
-      <item itemvalue="JUnit.UserMapperTest" />
-      <item itemvalue="JUnit.UserMapperTest.createuser" />
-      <item itemvalue="JUnit.UserMapperTest.getUserDetails" />
-      <item itemvalue="JUnit.UserMapperTest.login" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserMapperTest.createuser" />
-        <item itemvalue="JUnit.UserMapperTest" />
-        <item itemvalue="JUnit.UserMapperTest.login" />
-        <item itemvalue="JUnit.UserMapperTest.getUserDetails" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -301,6 +215,8 @@
       <workItem from="1714987766130" duration="813000" />
       <workItem from="1715155915307" duration="895000" />
       <workItem from="1715330712262" duration="396000" />
+      <workItem from="1716199976013" duration="30000" />
+      <workItem from="1716200113251" duration="7112000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -387,17 +303,6 @@
     <MESSAGE value="Fixing usermapper" />
     <MESSAGE value="predefined carports with links to site and homepagehtml" />
     <MESSAGE value="adding makeyourowncarport.html" />
-    <MESSAGE value="adding getAllOrdersForSearchedUser, removeUser and removeOrder" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding getAllOrdersForSearchedUser, removeUser and removeOrder" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="org.postgresql.util.PSQLException" package="org.postgresql.util" />
-          <option name="timeStamp" value="3" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="adding makeyourowncarport.html" />
   </component>
 </project>

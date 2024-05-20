@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #f9f9f9 0%, #e6e6e6 100%);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Form Container */
+.boxcontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.center-content {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    width: calc(100% - 16px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+button.main-button {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 16px);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+button.main-button:hover {
+    background-color: #0056b3;
+}
+
+button.secondary-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 16px);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+button.goback-button {
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 16px);
+    border-radius: 16px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+button.secondary-button:hover {
+    background-color: #565e64;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Order Confirmation Styles */
+#confirmationSection h1 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+#orderDetails {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#finalOrderForm {
+    margin-top: 20px;
+}

@@ -22,7 +22,7 @@ public class MaterialsCalculator {
 
     // Udregner antallet af spær baseret på carports - længde og bredde.
     public static int calcNrOfRafters(int carportLength, int carportWidth) {
-        int amountOfRafters = 0;
+        int amountOfRafters = 1;
 
         int remainingLength = carportLength - maxSpaceBetweenRafters;
 

@@ -63,7 +63,7 @@ public class Orderline {
         if (getOrderlineID() != orderline.getOrderlineID()) return false;
         if (getOrderID() != orderline.getOrderID()) return false;
         if (getMaterialID() != orderline.getMaterialID()) return false;
-        return getAmountOfMaterials() == orderline.getAmountOfMaterials();
+        return orderline.getAmountOfMaterial() == orderline.getAmountOfMaterial();
     }
 
     @Override
@@ -71,7 +71,7 @@ public class Orderline {
         int result = getOrderlineID();
         result = 31 * result + getOrderID();
         result = 31 * result + getMaterialID();
-        result = 31 * result + getAmountOfMaterials();
+        result = 31 * result + getAmountOfMaterial();
         return result;
     }
 }

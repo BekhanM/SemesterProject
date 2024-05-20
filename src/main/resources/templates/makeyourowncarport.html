@@ -4,85 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carport Template</title>
-    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link href="../public/css/carportCreator.css" th:href="@{/css/carportCreator.css}" rel="stylesheet"/>
 </head>
 <body>
 
 <div class="boxcontent">
     <div class="center-content">
         <div class="carport-customization">
-            <p>Bestil Quick-Byg tilbud - carport med fladt tag!</p>
+            <h2>Bestil Quick-Byg tilbud - carport med fladt tag!</h2>
             <form id="carportForm" onsubmit="showOrderConfirmation(event)">
+                <div class="form-group">
+                    <label for="carportLength">Carport Længde:</label>
+                    <select id="carportLength" name="carportLength">
+                        <option value="240">240 cm</option>
+                        <option value="270">270 cm</option>
+                        <option value="300">300 cm</option>
+                        <option value="330">330 cm</option>
+                        <option value="360">360 cm</option>
+                        <option value="390">390 cm</option>
+                        <option value="420">420 cm</option>
+                        <option value="450">450 cm</option>
+                        <option value="480">480 cm</option>
+                        <option value="510">510 cm</option>
+                        <option value="540">540 cm</option>
+                        <option value="570">570 cm</option>
+                        <option value="600">600 cm</option>
+                        <option value="630">630 cm</option>
+                        <option value="660">660 cm</option>
+                        <option value="690">690 cm</option>
+                        <option value="720">720 cm</option>
+                        <option value="750">750 cm</option>
+                        <option value="780">780 cm</option>
+                    </select>
+                </div>
 
-                <label for="carportWidth">Carport Bredde:</label>
-                <select id="carportWidth" name="carportWidth">
-                    <option value="240">240 cm</option>
-                    <option value="270">270 cm</option>
-                    <option value="300">300 cm</option>
-                    <option value="330">330 cm</option>
-                    <option value="360">360 cm</option>
-                    <option value="390">390 cm</option>
-                    <option value="420">420 cm</option>
-                    <option value="450">450 cm</option>
-                    <option value="480">480 cm</option>
-                    <option value="510">510 cm</option>
-                    <option value="540">540 cm</option>
-                    <option value="570">570 cm</option>
-                    <option value="600">600 cm</option>
-                </select>
+                <div class="form-group">
+                    <label for="carportWidth">Carport Bredde:</label>
+                    <select id="carportWidth" name="carportWidth">
+                        <option value="240">240 cm</option>
+                        <option value="270">270 cm</option>
+                        <option value="300">300 cm</option>
+                        <option value="330">330 cm</option>
+                        <option value="360">360 cm</option>
+                        <option value="390">390 cm</option>
+                        <option value="420">420 cm</option>
+                        <option value="450">450 cm</option>
+                        <option value="480">480 cm</option>
+                        <option value="510">510 cm</option>
+                        <option value="540">540 cm</option>
+                        <option value="570">570 cm</option>
+                        <option value="600">600 cm</option>
+                    </select>
+                </div>
 
-                <label for="carportLength">Carport Længde:</label>
-                <select id="carportLength" name="carportLength">
-                    <option value="240">240 cm</option>
-                    <option value="270">270 cm</option>
-                    <option value="300">300 cm</option>
-                    <option value="330">330 cm</option>
-                    <option value="360">360 cm</option>
-                    <option value="390">390 cm</option>
-                    <option value="420">420 cm</option>
-                    <option value="450">450 cm</option>
-                    <option value="480">480 cm</option>
-                    <option value="510">510 cm</option>
-                    <option value="540">540 cm</option>
-                    <option value="570">570 cm</option>
-                    <option value="600">600 cm</option>
-                    <option value="630">630 cm</option>
-                    <option value="660">660 cm</option>
-                    <option value="690">690 cm</option>
-                    <option value="720">720 cm</option>
-                    <option value="750">750 cm</option>
-                    <option value="780">780 cm</option>
-                </select>
+                <div class="form-group">
+                    <label for="roofMaterial">Carport trapeztag:</label>
+                    <select id="roofMaterial" name="roofMaterial">
+                        <option value="noroofmaterial">Uden tagplader</option>
+                        <option value="yesroofmaterial">Plasttrapezplader</option>
+                    </select>
+                </div>
 
-                <label for="roofMaterial">Carport trapeztag:</label>
-                <select id="roofMaterial" name="roofMaterial">
-                    <option value="noroofmaterial">Uden tagplader</option>
-                    <option value="yesroofmaterial">Plasttrapezplader</option>
-                </select>
-
-                <button type="submit">Se Bestilling</button>
+                <button type="submit" class="main-button">Se Bestilling</button>
             </form>
+        </div>
+
+        <div class="order-confirmation" id="confirmationSection" style="display:none;">
+            <h1>Order Confirmation</h1>
+            <p id="orderDetails"></p>
+            <p>MÅSKE PUTTE ET FLOT SVG SKITSE HER ET STED</p>
+            <form id="finalOrderForm" method="post" action="/calculateCarport">
+                <input type="hidden" id="carportLengthConfirm" name="carportLength">
+                <input type="hidden" id="carportWidthConfirm" name="carportWidth">
+                <input type="hidden" id="roofMaterialConfirm" name="roofMaterial">
+                <button type="submit" class="main-button">Bekræft Bestilling og betal.</button>
+            </form>
+            <button type="button" class="secondary-button" onclick="goBack()">Rediger Bestilling</button>
+            <button type="button" class="goback-button"><a href="/">Vend tilbage til forsiden. </a></button>
         </div>
     </div>
 </div>
-
-<div class="boxcontent" id="confirmationSection" style="display:none;">
-    <div class="center-content">
-        <h1>Order Confirmation</h1>
-        <p id="orderDetails"></p>
-        <p>MÅSKE PUTTE ET FLOT SVG SKITSE HER ET STED</p>
-        <form id="finalOrderForm" method="post" action="/calculateCarport">
-            <input type="hidden" id="carportLengthConfirm" name="carportLength">
-            <input type="hidden" id="carportWidthConfirm" name="carportWidth">
-            <input type="hidden" id="roofMaterialConfirm" name="roofMaterial">
-            <button type="submit">Bekræft Bestilling og betal.</button>
-        </form>
-        <button type="button" onclick="goBack()">Rediger Bestilling</button>
-        <a href="/">Vend tilbage til forsiden. </a>
-    </div>
-</div>
-
-<!-- Se denne video for forklaring af events, boys. Godt at have styr på: https://www.youtube.com/watch?v=_QVcbmGqm2o -->
 
 <script>
     function showOrderConfirmation(event) {
