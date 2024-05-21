@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="predefined carports with links to site and homepagehtml">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7cd8144-867b-4947-b5f1-269c43a1efef/storage_v2/_src_/database/Fog.nhQBAA/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/CarportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/CarportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/CarportSvg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/CarportSvg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/adminStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/adminStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/makeyourowncarport.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showCarport.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showCarport.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="getSVGToWorkSamtLækkerier" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,6 +90,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.UserMapperTest.executor": "Run",
     "JavaScript Debug.admin.html.executor": "Run",
     "JavaScript Debug.homepage.html.executor": "Run",
     "JavaScript Debug.login.html.executor": "Run",
@@ -87,7 +98,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "svgtegning-makeyourowncarportside",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO",
     "list.type.of.created.stylesheet": "CSS",
@@ -97,6 +108,10 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Dev/HackerMan/2. Semester/IntelliJ/SemesterProject/src/main/java/app/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.42528737",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -113,10 +128,10 @@
       <recent name="app.controllers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="fourthingsplus" />
+      <module name="SemesterProject" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -127,13 +142,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SemesterProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.persistence.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.persistence" />
+      <option name="MAIN_CLASS_NAME" value="app.persistence.UserMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserMapperTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.UserMapperTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.UserMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -160,6 +190,9 @@
       <workItem from="1715330712262" duration="396000" />
       <workItem from="1715865240839" duration="620000" />
       <workItem from="1716193246515" duration="13131000" />
+      <workItem from="1716277951206" duration="2132000" />
+      <workItem from="1716283152832" duration="20000" />
+      <workItem from="1716283252148" duration="6665000" />
     </task>
     <task id="LOCAL-00001" summary="Adding code structure and 3 classes">
       <option name="closed" value="true" />
@@ -243,6 +276,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="RELOAD_CONTEXT" value="false" />
     <MESSAGE value="Adding code structure and 3 classes" />
     <MESSAGE value="cp and stuff" />
     <MESSAGE value="idk what this is man" />

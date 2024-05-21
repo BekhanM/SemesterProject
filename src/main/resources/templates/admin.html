@@ -30,28 +30,6 @@
     <button type="submit">Search</button>
 </form>
 
-<div th:each="users : ${allUsers}">
-    <div class="order-box">
-        <h2>User Detaljer: </h2>
-        <table>
-            <thead>
-            <tr>
-                <th>UserID</th>
-                <th>Email</th>
-                <th>Fornavn</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td th:text="${users.userID}"></td>
-                <td th:text="${users.email}"></td>
-                <td th:text="${users.firstname}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
 <table class="user-table">
     <thead>
     <tr>
@@ -87,6 +65,29 @@
     </tr>
     </tbody>
 </table>
+
+
+<div th:each="users : ${allUsers}">
+    <div class="order-box">
+        <h2>User Detaljer: </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>UserID</th>
+                <th>Email</th>
+                <th>Fornavn</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${users.userID}"></td>
+                <td th:text="${users.email}"></td>
+                <td th:text="${users.firstname}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 </body>
 </html>

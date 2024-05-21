@@ -74,10 +74,9 @@
             <p id="orderDetails"></p>
             <p>MÅSKE PUTTE ET FLOT SVG SKITSE HER ET STED</p>
 
-            <div class="carport-svg-topview">
-                <div th:utext="${svg}"></div>
+            <div class="carport-svg-topview"
+                 th:utext="${svg}">
             </div>
-
 
             <form id="finalOrderForm" method="post" action="/calculateCarport">
                 <input type="hidden" id="carportLengthConfirm" name="carportLength">

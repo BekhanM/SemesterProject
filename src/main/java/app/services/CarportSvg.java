@@ -1,19 +1,24 @@
 package app.services;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.DecimalFormat;
 
 public class CarportSvg
 {
+    private static final Logger logger = LoggerFactory.getLogger(CarportSvg.class);
+
 
     private Svg carportSvg;
 
     //----*** VARIABLES ***----//
     private double carportWidth;
     private double carportLength;
-    private  double colomnSpace = 310;
-    private  double columnStartVal= 110;
-    private  double rafterSpace = 55;
+    private double colomnSpace = 310;
+    private double columnStartVal= 110;
+    private double rafterSpace = 55;
     private String textX="";
     private String textY= "";
 
@@ -46,13 +51,10 @@ public class CarportSvg
         addRafters(carportLength, carportWidth,rafterSpace);
 
         addColumns(carportLength,colomnSpace,columnStartVal);
+        logger.info("Generated SVG: {}", carportSvg.toString());
+
 
     }
-
-
-
-
-
 
     //-------------------------Vatnrætt-----------------------------//
     private void addBeams(double carportWidth){

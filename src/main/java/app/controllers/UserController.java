@@ -22,6 +22,7 @@ public class UserController {
         app.post("removeuser", ctx -> removeUser(ctx, connectionPool));
         app.post("logout", ctx -> logout(ctx));
         app.post("allUsers", ctx -> showAllUsers(ctx, connectionPool));
+        app.get("allUsers", ctx -> ctx.render("admin.html"));
     }
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) {
@@ -80,7 +81,7 @@ public class UserController {
 
         } catch (DatabaseException e) {
             //Hvis nej, send tilbage til login side med fejl besked
-            ctx.attribute("Fejl i login. Prøv igen.", e.getMessage());
+            ctx.attribute("loginError", "Forkert email eller kodeord. Prøv igen.");
             ctx.render("homepage.html");
         }
     }
@@ -190,8 +191,8 @@ public class UserController {
             List<User> allUsers = UserMapper.showAllUsers(connectionPool);
             ctx.attribute("allUsers", allUsers);
             ctx.render("admin.html");
-
         } catch (DatabaseException e) {
+            System.out.println("sum ting wong");
             ctx.status(500).result("Error retrieving user details: " + e.getMessage());
         }
     }

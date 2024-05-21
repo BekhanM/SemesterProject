@@ -26,19 +26,7 @@ public class OrderController {
        app.get("/orderlist", ctx -> ctx.render("orderlist.html"));
        app.post("/removeorder", ctx -> removeOrder(ctx, connectionPool));
        app.get("/userorders", ctx -> getUserOrdersWithDetails(ctx, connectionPool));
-      // app.get("/showCarport",ctx-> showCarport(ctx));
     }
-
-    /*
-    public static void showCarport(Context ctx)
-    {
-        Locale.setDefault(new Locale("US"));
-        CarportSvg svg = new CarportSvg(250, 500);
-
-        ctx.attribute("svg", svg.toString());
-        ctx.render("showCarport.html");
-    }
-     */
 
     public static void makeOrder(Context ctx, ConnectionPool connectionPool) {
 

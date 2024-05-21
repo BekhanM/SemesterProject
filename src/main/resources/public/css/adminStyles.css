@@ -347,3 +347,25 @@ img.avatar {
 .admin-form input[type="text"] {
     margin-bottom: 20px;
 }
+
+.order-box {
+    border: 1px solid #606060;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-box h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.order-box h3 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}

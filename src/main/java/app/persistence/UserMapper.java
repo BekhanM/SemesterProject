@@ -168,6 +168,7 @@ public class UserMapper {
                 allUsers.add(userDetails);
             }
         } catch (SQLException e) {
+            System.out.println("Kæmpe fejl i showAllUsers Mapper");
             throw new DatabaseException("Database error while retrieving all user details", e.getMessage());
         }
 
