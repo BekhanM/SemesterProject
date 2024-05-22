@@ -88,7 +88,6 @@ button.secondary-button:hover {
 
 button.goback-button {
     background-color: #28a745;
-    margin-top: 20px;
 }
 
 button.goback-button:hover {
@@ -156,7 +155,7 @@ a:hover {
     display: block;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
     .center-content {
         padding: 20px;

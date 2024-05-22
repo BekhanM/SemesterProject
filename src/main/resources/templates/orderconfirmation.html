@@ -7,14 +7,15 @@
     <link href="../public/css/carportCreator.css" th:href="@{/css/carportCreator.css}" rel="stylesheet"/>
 </head>
 <body>
-<h1>Tak! Vi har modtaget din ordre. Du hører fra os snarest.</h1>
+<h1>Tak! Vi har modtaget din ordre. Du hører fra os snarest!</h1>
 <p th:text="${message}"></p>
-<a href="/">Vend tilbage til forsiden.</a>
 
-<p>MÅSKE PUTTE ET FLOT SVG SKITSE HER ET STED</p>
-<div class="carport-svg-topview">
-    <div th:utext="${svg}"></div>
-</div>
+<p>Ved yderligere spørgsmål eller ønsker du at annulere din ordre.</p>
+<p>Kontakt venligst - Lars Jepsen.</p>
+<p>Tlf. nr: 12 34 56 78</p>
+<p>Email: larsjepsen@fog.dk</p>
+
+<button type="button" class="goback-button"><a href="/">Vend tilbage til forsiden.</a></button>
 
 </body>
 </html>

@@ -20,9 +20,6 @@
     <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.firstname}"></span>!</p>
 </div>
 
-<div class="options">
-    <a href="orderlist.html" th:href="@{orderlist}">Se brugeres ordre</a>
-</div>
 
 <form th:action="@{/admin}" method="post" class="admin-form">
     <label for="email">Indtast kundens email:</label>
@@ -33,19 +30,25 @@
 <table class="user-table">
     <thead>
     <tr>
-        <th>UserID</th>
         <th>Email</th>
         <th>Fornavn</th>
         <th>Efternavn</th>
+        <th>Adresse</th>
+        <th>Postnummer</th>
+        <th>By</th>
+        <th>Tlf. nr.</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="user : ${userList}">
-        <td th:text="${user.userID}"></td>
         <td th:text="${user.email}"></td>
         <td th:text="${user.firstname}"></td>
         <td th:text="${user.lastname}"></td>
+        <td th:text="${user.adresse}"></td>
+        <td th:text="${user.postnr}"></td>
+        <td th:text="${user.by}"></td>
+        <td th:text="${user.tlfnr}"></td>
         <td>
             <form th:action="@{/admin/viewUserOrders}" method="get">
                 <input type="hidden" name="userID" th:value="${user.userID}">
