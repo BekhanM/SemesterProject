@@ -20,10 +20,9 @@
     <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.firstname}"></span>!</p>
 </div>
 
-
 <form th:action="@{/admin}" method="post" class="admin-form">
     <label for="email">Indtast kundens email:</label>
-    <input type="text" id="email" name="email" required>
+    <input type="text" id="email" name="email">
     <button type="submit">Søg</button>
 </form>
 
@@ -37,6 +36,7 @@
         <th>Postnummer</th>
         <th>By</th>
         <th>Tlf. nr.</th>
+        <th></th>
         <th></th>
     </tr>
     </thead>
@@ -52,7 +52,13 @@
         <td>
             <form th:action="@{/admin/viewUserOrders}" method="get">
                 <input type="hidden" name="userID" th:value="${user.userID}">
-                <button type="submit">Kundens ordre.</button>
+                <button type="submit">Kundens ordre</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/removeuser}" method="post">
+                <input type="hidden" name="userID" th:value="${user.userID}">
+                <button type="submit" style="background-color:red; color:white;">Fjern bruger</button>
             </form>
         </td>
     </tr>

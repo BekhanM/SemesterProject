@@ -137,12 +137,8 @@ public class UserMapper {
     }
 
     public static List<User> getAllUsersDetail(String userEmail, ConnectionPool connectionPool) throws DatabaseException {
-        System.out.println("Nu er du i getAllUsersDetail mapper");
-
         List<User> userDetailsList = new ArrayList<>();
-
         String sql = "SELECT * FROM users WHERE email LIKE ?";
-
 
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -165,14 +161,13 @@ public class UserMapper {
                 userDetailsList.add(userDetails);
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Database error while retrieving user2 details", e.getMessage());
+            throw new DatabaseException("Database error while retrieving user details", e.getMessage());
         }
 
         return userDetailsList;
     }
 
     public static List<User> showAllUsers(ConnectionPool connectionPool) throws DatabaseException {
-        System.out.println("Du er nu i showAllUsers i UserMapper");
         String sql = "SELECT * FROM users";
         List<User> allUsers = new ArrayList<>();
 
@@ -196,19 +191,18 @@ public class UserMapper {
                 allUsers.add(userDetails);
             }
         } catch (SQLException e) {
-            System.out.println("Kæmpe fejl i showAllUsers Mapper");
             throw new DatabaseException("Database error while retrieving all user details", e.getMessage());
         }
 
         return allUsers;
     }
 
+
     public static void removeUser(int userID, ConnectionPool connectionPool) throws DatabaseException {
-        System.out.println("Nu er du i removeUser mapper");
         String sql = "DELETE FROM users WHERE \"userID\" = ?";
 
         try (Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql)) {
+             PreparedStatement ps = connection.prepareStatement(sql)) {
 
             ps.setInt(1, userID);
             int rowsAffected = ps.executeUpdate();

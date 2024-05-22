@@ -21,8 +21,8 @@ public class UserController {
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
         app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
-        app.get("admin", ctx -> ctx.render("admin.html"));
-        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
+        app.get("admin", ctx -> getAllUsersDetail(ctx, connectionPool));  // Change to getAllUsersDetail for initial load
+        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));  // Change to getAllUsersDetail for search
         app.get("admin/viewUserOrders", ctx -> viewUserOrders(ctx, connectionPool));
         app.post("removeuser", ctx -> removeUser(ctx, connectionPool));
         app.post("logout", ctx -> logout(ctx));
@@ -47,10 +47,7 @@ public class UserController {
         }
     }
 
-
-
     private static void createUser(Context ctx, ConnectionPool connectionPool) {
-        //Hent form parametre
         String email = ctx.formParam("email");
         String password1 = ctx.formParam("password1");
         String firstname = ctx.formParam("firstname");
@@ -59,7 +56,6 @@ public class UserController {
         int postnr = Integer.parseInt(ctx.formParam("postnr"));
         String city = ctx.formParam("city");
         int tlfnr = Integer.parseInt(ctx.formParam("tlfnr"));
-
 
         if (validatePassword(password1) && checkEmailAt(Objects.requireNonNull(email))) {
             try {
@@ -85,11 +81,9 @@ public class UserController {
     }
 
     public static void login(Context ctx, ConnectionPool connectionPool) {
-        System.out.println("NU ER DU LOGGET IND ");
         String email = ctx.formParam("email");
         String password = ctx.formParam("password");
 
-        //Check om bruger findes i DB med de angivne username + password
         try {
             User user = UserMapper.login(email, password, connectionPool);
             ctx.sessionAttribute("currentUser", user);
@@ -97,14 +91,12 @@ public class UserController {
             ctx.attribute("role", user.getRole());
 
             if (user.getRole().equals("admin")) {
-                ctx.render("admin.html");
+                ctx.redirect("admin");
             } else {
                 ctx.render("/homepage");
             }
 
-
         } catch (DatabaseException e) {
-            //Hvis nej, send tilbage til login side med fejl besked
             ctx.attribute("loginError", "Forkert email eller kodeord. Prøv igen.");
             ctx.render("homepage.html");
         }
@@ -124,81 +116,42 @@ public class UserController {
             if (upperCaseFlag && lowerCaseFlag)
                 return true;
         }
-        System.out.println("Kodeordet skal have et stort bogstav");
         return false;
     }
 
     public static boolean checkLength(String str) {
-
-        if (str.length() < 129 && str.length() > 7) {
-            return true;
-        } else {
-            System.out.println("Kodeordet skal mindst være 8 karakterer langt");
-            return false;
-        }
+        return str.length() < 129 && str.length() > 7;
     }
 
     public static boolean checkNumeric(String str) {
-        char c;
-        boolean numberFlag = false;
         for (int i = 0; i < str.length(); i++) {
-            c = str.charAt(i);
-            if (Character.isDigit(c)) {
+            if (Character.isDigit(str.charAt(i))) {
                 return true;
             }
-        }
-
-        if (!numberFlag) {
-            System.out.println("Kodeordet skal have tal.");
         }
         return false;
     }
 
     public static boolean validatePassword(String password) {
-        boolean i = checkNumeric(password);
-        boolean j = checkLength(password);
-        boolean k = checkUpperCase(password);
-        if (i && j && k) {
-            return true;
-        } else {
-            return false;
-        }
+        return checkNumeric(password) && checkLength(password) && checkUpperCase(password);
     }
 
     public static boolean checkEmailAt(String email) {
-        for (int i = 0; i < email.length(); i++) {
-            if (email.charAt(i) == '@') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static void getUserDetails(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        // Retrieve the userID from the current session
-
-        User currentUser = ctx.sessionAttribute("currentUser");
-
-        int userID = currentUser.getUserID();
-
-        try {
-            System.out.println("UserID: " + userID);
-            List<User> users = UserMapper.getUserDetails(userID, connectionPool);
-            System.out.println("Retrieved UserDetails: " + users.size()); // Log the size of the orderLine list
-
-            ctx.attribute("userList", users);
-            ctx.render("admin.html");
-        } catch (DatabaseException e) {
-            System.err.println("Error retrieving users details: " + e.getMessage());
-            ctx.status(500).result("Error retrieving users details: " + e.getMessage());
-        }
+        return email.contains("@");
     }
 
     private static void getAllUsersDetail(Context ctx, ConnectionPool connectionPool) {
         String userEmail = ctx.formParam("email");
         try {
-            List<User> userList = UserMapper.getAllUsersDetail(userEmail, connectionPool);
+            List<User> userList;
+            if (userEmail == null || userEmail.isEmpty()) {
+                System.out.println("have we even beeen here?");
+                userList = UserMapper.showAllUsers(connectionPool); // Fetch all users if no email is provided
+            } else {
+                userList = UserMapper.getAllUsersDetail(userEmail, connectionPool); // Filter users by email
+            }
             ctx.attribute("userList", userList);
+            System.out.println("Number of users fetched: " + userList.size()); // Debug statement
             ctx.render("admin.html");
         } catch (DatabaseException e) {
             ctx.status(500).result("Error retrieving user details: " + e.getMessage());
@@ -206,21 +159,16 @@ public class UserController {
     }
 
     public static void showAllUsers(Context ctx, ConnectionPool connectionPool) {
-        System.out.println("DU ER I SHOWALL USERSCONTROLLER");
-
         try {
             List<User> allUsers = UserMapper.showAllUsers(connectionPool);
             ctx.attribute("allUsers", allUsers);
             ctx.render("admin.html");
         } catch (DatabaseException e) {
-            System.out.println("sum ting wong");
             ctx.status(500).result("Error retrieving user details: " + e.getMessage());
         }
     }
 
     private static void removeUser(Context ctx, ConnectionPool connectionPool) {
-        System.out.println("NU ER DU I REMOVEUSER I CONTROLLEREN");
-
         int userID = Integer.parseInt(ctx.formParam("userID"));
         try {
             UserMapper.removeUser(userID, connectionPool);
