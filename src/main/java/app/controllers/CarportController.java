@@ -19,8 +19,9 @@ public class CarportController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("/makeyourowncarport2", ctx -> showCarport(ctx));
         app.get("/showCarport", ctx -> showCarport(ctx));
-       // app.get("/showCarport", ctx -> ctx.render("showCarport.html"));
+        // app.get("/showCarport", ctx -> ctx.render("showCarport.html"));
         app.post("/calculateCarport", ctx -> calculateCarport(ctx, connectionPool));
+        app.post("/generateSvg", ctx -> generateSvg(ctx)); // New route to generate SVG
     }
 
     private static void calculateCarport(Context ctx, ConnectionPool connectionPool) {
@@ -42,28 +43,33 @@ public class CarportController {
             OrderService orderService = new OrderService(orderMapper, orderlineMapper, materialMapper, connectionPool);
             CarportPartsCalculator carportPartsCalculator = new CarportPartsCalculator(orderService);
 
-
             carportPartsCalculator.calcCarportParts(userID, carportLength, carportWidth);
-
 
             ctx.attribute("message", "Vi har modtaget ordren for en carport med længde: " + carportLength + " cm., og bredde: " + carportWidth + " cm.");
             ctx.render("orderconfirmation.html");
         } catch (NumberFormatException | DatabaseException e) {
-
             ctx.attribute("message", "Kaput, kig i calccarport controller " + e.getMessage());
             ctx.render("makeyourowncarport2.html");
         }
     }
 
     public static void showCarport(Context ctx) {
+        Locale.setDefault(new Locale("US"));
 
-                Locale.setDefault(new Locale("US"));
+        CarportSvg svg = new CarportSvg(600, 780); // Hardcoded dimensions, update for dynamic
+        String svgPic = svg.toString();
+        ctx.attribute("svg", svgPic);
 
-                CarportSvg svg = new CarportSvg(600, 780);
-                String svgPic = svg.toString();
-                ctx.attribute("svg", svgPic);
-
-                ctx.render("makeyourowncarport2.html");
+        ctx.render("makeyourowncarport2.html");
     }
 
+    private static void generateSvg(Context ctx) {
+        int carportLength = Integer.parseInt(ctx.formParam("carportLength"));
+        int carportWidth = Integer.parseInt(ctx.formParam("carportWidth"));
+
+        CarportSvg svg = new CarportSvg(carportWidth, carportLength);
+        String svgPic = svg.toString();
+
+        ctx.result(svgPic).contentType("image/svg+xml");
+    }
 }

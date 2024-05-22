@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background: linear-gradient(135deg, #f9f9f9 0%, #e6e6e6 100%);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -20,47 +20,55 @@ body {
 .center-content {
     background: white;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     text-align: center;
 }
 
 h2 {
     margin-bottom: 20px;
     color: #007bff;
+    font-size: 26px;
+    font-weight: 700;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #333;
+    color: #555;
 }
 
 select {
-    width: calc(100% - 16px);
-    padding: 10px;
+    width: 100%;
+    padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .form-group {
     margin-bottom: 20px;
 }
 
-button.main-button {
+button.main-button, button.secondary-button, button.goback-button {
     background-color: #007bff;
     color: white;
     padding: 14px 20px;
     margin-top: 10px;
     border: none;
     cursor: pointer;
-    width: calc(100% - 16px);
+    width: 100%;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-size: 18px;
@@ -72,37 +80,28 @@ button.main-button:hover {
 
 button.secondary-button {
     background-color: #6c757d;
-    color: white;
-    padding: 14px 20px;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-    width: calc(100% - 16px);
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
-}
-
-button.goback-button {
-    padding: 14px 20px;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-    width: calc(100% - 16px);
-    border-radius: 16px;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
 }
 
 button.secondary-button:hover {
     background-color: #565e64;
 }
 
+button.goback-button {
+    background-color: #28a745;
+    margin-top: 20px;
+}
+
+button.goback-button:hover {
+    background-color: #218838;
+}
+
 a {
     display: block;
     margin-top: 20px;
-    color: #007bff;
+    color: white;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 a:hover {
@@ -110,21 +109,73 @@ a:hover {
 }
 
 /* Order Confirmation Styles */
+#confirmationSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 #confirmationSection h1 {
     color: #28a745;
     margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 700;
 }
 
 #orderDetails {
     font-size: 18px;
     margin-bottom: 20px;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
 }
 
 #finalOrderForm {
     margin-top: 20px;
 }
+
 .carport-svg-topview {
-    padding: 50px;
-    max-width: 800px;
-    margin: auto;
+    padding: 0;
+    margin: 20px auto;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carport-svg-topview svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .center-content {
+        padding: 20px;
+    }
+
+    select {
+        font-size: 14px;
+    }
+
+    button.main-button, button.secondary-button, button.goback-button {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+
+    #confirmationSection h1 {
+        font-size: 22px;
+    }
+
+    #orderDetails {
+        font-size: 16px;
+    }
 }
