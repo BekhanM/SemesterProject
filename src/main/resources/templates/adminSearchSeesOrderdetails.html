@@ -60,7 +60,9 @@
             <form th:action="@{/admin/removeorder}" method="post">
                 <input type="hidden" name="orderID" th:value="${orderdetails.value[0].orderID}">
                 <input type="hidden" name="userID" th:value="${userID}">
-                <button type="submit">Slet ordre</button>
+                <div class="button-container">
+                    <button type="submit">Slet ordre</button>
+                </div>
             </form>
         </div>
     </div>

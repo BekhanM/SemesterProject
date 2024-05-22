@@ -9,9 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1e6bcf-f551-440f-aff5-a8d1fc9b455d" name="Changes" comment="calc unittests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/persistence/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/userOrdersStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/userOrdersStyles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminSearchSeesOrderdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminSearchSeesOrderdetails.html" afterDir="false" />
     </list>
     <list id="708ca90c-c5d8-42ee-a74f-2e55643f11bb" name="Changes by there" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="adminSerAllebrugere" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -102,7 +101,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "adminSerAllebrugere",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Dev/HackerMan/2. Semester/IntelliJ/CupcakeBRO",
     "list.type.of.created.stylesheet": "CSS",
@@ -340,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716408397387</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="admin fungerer endnu bedre, kan se alle brugere fra starten.&#10;admin kan slette brugere også.&#10;very nice.">
+      <option name="closed" value="true" />
+      <created>1716414834475</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716414834475</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +375,8 @@
     <MESSAGE value="admin sees orders and users BIG UPDATE" />
     <MESSAGE value="klassediagram" />
     <MESSAGE value="calc unittests" />
-    <option name="LAST_COMMIT_MESSAGE" value="calc unittests" />
+    <MESSAGE value="admin fungerer endnu bedre, kan se alle brugere fra starten.&#10;admin kan slette brugere også.&#10;very nice." />
+    <option name="LAST_COMMIT_MESSAGE" value="admin fungerer endnu bedre, kan se alle brugere fra starten.&#10;admin kan slette brugere også.&#10;very nice." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -58,6 +58,31 @@ td {
     background-color: #fff;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #e71515;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    justify-content: center;
+    align-content: center;
+    place-content: center;
+}
+
+button:hover {
+    background-color: #bf2626;
+}
+
 .total-price {
     font-weight: bold;
     color: #007BFF;
