@@ -25,9 +25,9 @@
 </div>
 
 <form th:action="@{/admin}" method="post" class="admin-form">
-    <label for="email">Enter User Email:</label>
+    <label for="email">Indtast kundens email:</label>
     <input type="text" id="email" name="email" required>
-    <button type="submit">Search</button>
+    <button type="submit">Søg</button>
 </form>
 
 <table class="user-table">
@@ -35,59 +35,26 @@
     <tr>
         <th>UserID</th>
         <th>Email</th>
-        <th>Password</th>
-        <th>Rolle</th>
         <th>Fornavn</th>
         <th>Efternavn</th>
-        <th>Adresse</th>
-        <th>Postnummer</th>
-        <th>By</th>
-        <th>Telefonnummer</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="users : ${userList}">
-        <td th:text="${users.userID}"></td>
-        <td th:text="${users.email}"></td>
-        <td th:text="${users.password}"></td>
-        <td th:text="${users.role}"></td>
-        <td th:text="${users.firstname}"></td>
-        <td th:text="${users.lastname}"></td>
-        <td th:text="${users.adresse}"></td>
-        <td th:text="${users.postnr}"></td>
-        <td th:text="${users.by}"></td>
-        <td th:text="${users.tlfnr}"></td>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.userID}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.firstname}"></td>
+        <td th:text="${user.lastname}"></td>
         <td>
-            <form action="@{/removeUser}" th:action="@{/removeuser}" method="post">
-                <button type="submit" name="userID" th:value="${users.userID}">Remove</button>
+            <form th:action="@{/admin/viewUserOrders}" method="get">
+                <input type="hidden" name="userID" th:value="${user.userID}">
+                <button type="submit">Kundens ordre.</button>
             </form>
         </td>
     </tr>
     </tbody>
 </table>
-
-
-<div th:each="users : ${allUsers}">
-    <div class="order-box">
-        <h2>User Detaljer: </h2>
-        <table>
-            <thead>
-            <tr>
-                <th>UserID</th>
-                <th>Email</th>
-                <th>Fornavn</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td th:text="${users.userID}"></td>
-                <td th:text="${users.email}"></td>
-                <td th:text="${users.firstname}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 
 </body>
 </html>

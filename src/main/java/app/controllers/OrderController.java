@@ -25,6 +25,7 @@ public class OrderController {
        app.post("/orderlist", ctx -> getAllOrdersForSearchedUser(ctx, connectionPool));
        app.get("/orderlist", ctx -> ctx.render("orderlist.html"));
        app.post("/removeorder", ctx -> removeOrder(ctx, connectionPool));
+       app.post("/admin/removeorder", ctx -> adminRemoveOrder(ctx, connectionPool));
        app.get("/userorders", ctx -> getUserOrdersWithDetails(ctx, connectionPool));
     }
 
@@ -37,6 +38,17 @@ public class OrderController {
         ctx.attribute("message", "makeOrder successfull (OrderController");
     }
 
+    private static void adminRemoveOrder(Context ctx, ConnectionPool connectionPool) {
+        int orderID = Integer.parseInt(ctx.formParam("orderID"));
+        int userID = Integer.parseInt(ctx.formParam("userID"));
+
+        try {
+            OrderMapper.removeOrder(orderID, connectionPool);
+            ctx.redirect("/admin/viewUserOrders?userID=" + userID); // Redirect back to the orders page
+        } catch (DatabaseException e) {
+            ctx.status(500).result("Error removing order: " + e.getMessage());
+        }
+    }
 
     private static void getAllOrdersForSearchedUser(Context ctx, ConnectionPool connectionPool) {
         System.out.println("DU ER NU I GETALLORDERSFORCURRENTUSER I CONTROLLEREN");

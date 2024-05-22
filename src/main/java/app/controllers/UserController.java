@@ -1,14 +1,18 @@
 package app.controllers;
 
+import app.entities.OrderDetails;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
+import app.persistence.OrderMapper;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class UserController {
 
@@ -17,13 +21,33 @@ public class UserController {
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
         app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
-        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
         app.get("admin", ctx -> ctx.render("admin.html"));
+        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
+        app.get("admin/viewUserOrders", ctx -> viewUserOrders(ctx, connectionPool));
         app.post("removeuser", ctx -> removeUser(ctx, connectionPool));
         app.post("logout", ctx -> logout(ctx));
         app.post("allUsers", ctx -> showAllUsers(ctx, connectionPool));
-        app.get("allUsers", ctx -> ctx.render("admin.html"));
     }
+
+    private static void viewUserOrders(Context ctx, ConnectionPool connectionPool) {
+        int userID = Integer.parseInt(ctx.queryParam("userID"));
+
+        try {
+            User user = UserMapper.getUserById(userID, connectionPool);
+
+            List<OrderDetails> orderDetailsList = OrderMapper.getUserOrdersWithDetails(userID, connectionPool);
+            Map<Integer, List<OrderDetails>> orderDetailsGroupedByOrderID = orderDetailsList.stream()
+                    .collect(Collectors.groupingBy(OrderDetails::getOrderID));
+            ctx.attribute("orderDetailsGroupedByOrderID", orderDetailsGroupedByOrderID);
+            ctx.attribute("userID", userID);
+            ctx.attribute("fullname", user.getFirstName() + " " + user.getLastName());
+            ctx.render("adminSearchSeesOrderdetails.html");
+        } catch (DatabaseException e) {
+            ctx.status(500).result("Error retrieving user orders: " + e.getMessage());
+        }
+    }
+
+
 
     private static void createUser(Context ctx, ConnectionPool connectionPool) {
         //Hent form parametre
@@ -170,10 +194,7 @@ public class UserController {
         }
     }
 
-    public static void getAllUsersDetail(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        // Retrieve the userID from the current session
-        System.out.println("NU ER DU I GETALLUSERSDETAIL I CONTROLLEREN");
-
+    private static void getAllUsersDetail(Context ctx, ConnectionPool connectionPool) {
         String userEmail = ctx.formParam("email");
         try {
             List<User> userList = UserMapper.getAllUsersDetail(userEmail, connectionPool);

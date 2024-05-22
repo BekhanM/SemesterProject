@@ -5,7 +5,6 @@ public class MaterialsCalculator {
     private static final int minimumAmountOfPostsNeededToHaveACarportObviously = 4;
     private static final int maxSpaceBetweenRafters = 55;
     private static final int minimumAmountOfBeamsNeededToHaveACarportObviously = 2;
-
     // Udregner antallet af posts baseret på carports - længde og bredde.
     public static int calcNrOfPosts(int carportLength, int carportWidth) {
         int minNrOfPosts = minimumAmountOfPostsNeededToHaveACarportObviously;

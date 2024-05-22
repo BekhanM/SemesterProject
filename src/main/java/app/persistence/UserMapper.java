@@ -13,6 +13,34 @@ import java.util.List;
 
 public class UserMapper {
 
+
+    public static User getUserById(int userID, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "SELECT * FROM users WHERE \"userID\" = ?";
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement ps = connection.prepareStatement(sql)
+        ) {
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String address = rs.getString("adresse");
+                int postnr = rs.getInt("postnr");
+                String city = rs.getString("by");
+                int tlfnr = rs.getInt("tlfnr");
+                return new User(userID, email, password, role, firstname, lastname, address, postnr, city, tlfnr);
+            } else {
+                throw new DatabaseException("User not found");
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException("Error retrieving user by ID", e.getMessage());
+        }
+    }
+
     public static User login(String email, String password, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "select * from users where email=? and password=?";
 
