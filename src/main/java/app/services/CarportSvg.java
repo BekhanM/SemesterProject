@@ -155,9 +155,18 @@ public class CarportSvg
         carportSvg.addLine(iAmount+2.25,-10,iAmount+2.25,10,"stroke:#000000");
     }
 
+    public void setCarportWidth(double carportWidth) {
+        this.carportWidth = carportWidth;
+    }
+
+    public void setCarportLength(double carportLength) {
+        this.carportLength = carportLength;
+    }
+
     @Override
     public String toString()
     {
         return carportSvg.toString();
     }
 }
+

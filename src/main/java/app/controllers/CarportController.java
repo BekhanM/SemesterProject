@@ -16,11 +16,10 @@ import java.util.Locale;
 
 public class CarportController {
 
-
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("/makeyourowncarport", ctx -> showCarport(ctx));
-        app.post("/showCarport", ctx -> showCarport(ctx));
-        app.get("/showCarport", ctx -> ctx.render("showCarport.html"));
+        app.get("/makeyourowncarport2", ctx -> showCarport(ctx));
+        app.get("/showCarport", ctx -> showCarport(ctx));
+       // app.get("/showCarport", ctx -> ctx.render("showCarport.html"));
         app.post("/calculateCarport", ctx -> calculateCarport(ctx, connectionPool));
     }
 
@@ -35,6 +34,7 @@ public class CarportController {
             int userID = currentUser.getUserID();
             int carportLength = Integer.parseInt(ctx.formParam("carportLength"));
             int carportWidth = Integer.parseInt(ctx.formParam("carportWidth"));
+            System.out.println(carportLength);
 
             OrderMapper orderMapper = new OrderMapper();
             OrderlineMapper orderlineMapper = new OrderlineMapper();
@@ -42,23 +42,28 @@ public class CarportController {
             OrderService orderService = new OrderService(orderMapper, orderlineMapper, materialMapper, connectionPool);
             CarportPartsCalculator carportPartsCalculator = new CarportPartsCalculator(orderService);
 
+
             carportPartsCalculator.calcCarportParts(userID, carportLength, carportWidth);
+
 
             ctx.attribute("message", "Vi har modtaget ordren for en carport med længde: " + carportLength + " cm., og bredde: " + carportWidth + " cm.");
             ctx.render("orderconfirmation.html");
         } catch (NumberFormatException | DatabaseException e) {
+
             ctx.attribute("message", "Kaput, kig i calccarport controller " + e.getMessage());
-            ctx.render("makeyourowncarport.html");
+            ctx.render("makeyourowncarport2.html");
         }
     }
 
     public static void showCarport(Context ctx) {
-        Locale.setDefault(new Locale("US"));
-        CarportSvg svg = new CarportSvg(500, 500);
-        String svgPic = svg.toString();
 
-        ctx.attribute("svg", svgPic);
-        ctx.render("showCarport.html");
+                Locale.setDefault(new Locale("US"));
+
+                CarportSvg svg = new CarportSvg(600, 780);
+                String svgPic = svg.toString();
+                ctx.attribute("svg", svgPic);
+
+                ctx.render("makeyourowncarport2.html");
     }
 
 }

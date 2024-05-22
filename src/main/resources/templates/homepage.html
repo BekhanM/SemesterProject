@@ -127,7 +127,7 @@
 
 <div class="options">
     <div th:if="${session.currentUser != null}">
-        <a class="stylish-button" th:href="@{/makeyourowncarport}">Lav din egen carport</a>
+        <a class="stylish-button"  th:href="@{/makeyourowncarport2}">Lav din egen carport</a>
     </div>
     <div th:if="${session.currentUser == null}">
         <button class="stylish-button" onclick="alert('Vi har brug for information om dig. Venligst log ind eller opret en bruger.');">Lav din egen carport</button>
