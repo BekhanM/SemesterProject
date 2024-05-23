@@ -17,7 +17,7 @@ public class OrderDetails {
         this.material = material;
     }
 
-    // Getters and Setters
+
 
     public int getOrderID() {
         return orderID;

@@ -6,8 +6,11 @@ import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.OrderMapper;
+import app.persistence.OrderlineMapper;
+import app.persistence.MaterialMapper;
 import app.services.CarportPartsCalculator;
 import app.persistence.UserMapper;
+import app.services.OrderService;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import java.util.Locale;
@@ -27,6 +30,24 @@ public class OrderController {
        app.post("/removeorder", ctx -> removeOrder(ctx, connectionPool));
        app.post("/admin/removeorder", ctx -> adminRemoveOrder(ctx, connectionPool));
        app.get("/userorders", ctx -> getUserOrdersWithDetails(ctx, connectionPool));
+       app.post("/admin/updateorder", ctx -> updateOrder(ctx, connectionPool));
+    }
+
+    private static void updateOrder(Context ctx, ConnectionPool connectionPool) {
+        int orderID = Integer.parseInt(ctx.formParam("orderID"));
+        int userID = Integer.parseInt(ctx.formParam("userID"));
+        int carportLength = Integer.parseInt(ctx.formParam("carportLength"));
+        int carportWidth = Integer.parseInt(ctx.formParam("carportWidth"));
+
+        OrderService orderService = new OrderService(new OrderMapper(), new OrderlineMapper(), new MaterialMapper(), connectionPool);
+
+        try {
+            orderService.updateOrder(orderID, userID, carportLength, carportWidth);
+
+            ctx.redirect("/admin/viewUserOrders?userID=" + userID);
+        } catch (DatabaseException e) {
+            ctx.status(500).result("Error updating order: " + e.getMessage());
+        }
     }
 
     public static void makeOrder(Context ctx, ConnectionPool connectionPool) {
@@ -44,7 +65,7 @@ public class OrderController {
 
         try {
             OrderMapper.removeOrder(orderID, connectionPool);
-            ctx.redirect("/admin/viewUserOrders?userID=" + userID); // Redirect back to the orders page
+            ctx.redirect("/admin/viewUserOrders?userID=" + userID);
         } catch (DatabaseException e) {
             ctx.status(500).result("Error removing order: " + e.getMessage());
         }

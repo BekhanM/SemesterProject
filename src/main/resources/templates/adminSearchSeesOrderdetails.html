@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,48 +14,93 @@
     <div th:each="orderdetails : ${orderDetailsGroupedByOrderID}">
         <div class="order-box">
             <h2>Order Details:</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Materiale Pris</th>
-                    <th>Carport Længde</th>
-                    <th>Carport Bredde</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="total-price" th:text="${orderdetails.value[0].totalPrice} + ' DKK.'"></td>
-                    <td th:text="${orderdetails.value[0].carportLength} + ' cm.'"></td>
-                    <td th:text="${orderdetails.value[0].carportWidth} + ' cm.'"></td>
-                </tr>
-                </tbody>
-            </table>
+            <form th:action="@{/admin/updateorder}" method="post">
+                <input type="hidden" name="orderID" th:value="${orderdetails.value[0].orderID}">
+                <input type="hidden" name="userID" th:value="${userID}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Materiale Pris</th>
+                        <th>Carport Længde</th>
+                        <th>Carport Bredde</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="total-price" th:text="${orderdetails.value[0].totalPrice} + ' DKK.'"></td>
+                        <td>
+                            <select name="carportLength" id="carportLength">
+                                <option th:value="240" th:text="'240 cm'" th:selected="${orderdetails.value[0].carportLength == 240}"></option>
+                                <option th:value="270" th:text="'270 cm'" th:selected="${orderdetails.value[0].carportLength == 270}"></option>
+                                <option th:value="300" th:text="'300 cm'" th:selected="${orderdetails.value[0].carportLength == 300}"></option>
+                                <option th:value="330" th:text="'330 cm'" th:selected="${orderdetails.value[0].carportLength == 330}"></option>
+                                <option th:value="360" th:text="'360 cm'" th:selected="${orderdetails.value[0].carportLength == 360}"></option>
+                                <option th:value="390" th:text="'390 cm'" th:selected="${orderdetails.value[0].carportLength == 390}"></option>
+                                <option th:value="420" th:text="'420 cm'" th:selected="${orderdetails.value[0].carportLength == 420}"></option>
+                                <option th:value="450" th:text="'450 cm'" th:selected="${orderdetails.value[0].carportLength == 450}"></option>
+                                <option th:value="480" th:text="'480 cm'" th:selected="${orderdetails.value[0].carportLength == 480}"></option>
+                                <option th:value="510" th:text="'510 cm'" th:selected="${orderdetails.value[0].carportLength == 510}"></option>
+                                <option th:value="540" th:text="'540 cm'" th:selected="${orderdetails.value[0].carportLength == 540}"></option>
+                                <option th:value="570" th:text="'570 cm'" th:selected="${orderdetails.value[0].carportLength == 570}"></option>
+                                <option th:value="600" th:text="'600 cm'" th:selected="${orderdetails.value[0].carportLength == 600}"></option>
+                                <option th:value="630" th:text="'630 cm'" th:selected="${orderdetails.value[0].carportLength == 630}"></option>
+                                <option th:value="660" th:text="'660 cm'" th:selected="${orderdetails.value[0].carportLength == 660}"></option>
+                                <option th:value="690" th:text="'690 cm'" th:selected="${orderdetails.value[0].carportLength == 690}"></option>
+                                <option th:value="720" th:text="'720 cm'" th:selected="${orderdetails.value[0].carportLength == 720}"></option>
+                                <option th:value="750" th:text="'750 cm'" th:selected="${orderdetails.value[0].carportLength == 750}"></option>
+                                <option th:value="780" th:text="'780 cm'" th:selected="${orderdetails.value[0].carportLength == 780}"></option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="carportWidth" id="carportWidth">
+                                <option th:value="240" th:text="'240 cm'" th:selected="${orderdetails.value[0].carportWidth == 240}"></option>
+                                <option th:value="270" th:text="'270 cm'" th:selected="${orderdetails.value[0].carportWidth == 270}"></option>
+                                <option th:value="300" th:text="'300 cm'" th:selected="${orderdetails.value[0].carportWidth == 300}"></option>
+                                <option th:value="330" th:text="'330 cm'" th:selected="${orderdetails.value[0].carportWidth == 330}"></option>
+                                <option th:value="360" th:text="'360 cm'" th:selected="${orderdetails.value[0].carportWidth == 360}"></option>
+                                <option th:value="390" th:text="'390 cm'" th:selected="${orderdetails.value[0].carportWidth == 390}"></option>
+                                <option th:value="420" th:text="'420 cm'" th:selected="${orderdetails.value[0].carportWidth == 420}"></option>
+                                <option th:value="450" th:text="'450 cm'" th:selected="${orderdetails.value[0].carportWidth == 450}"></option>
+                                <option th:value="480" th:text="'480 cm'" th:selected="${orderdetails.value[0].carportWidth == 480}"></option>
+                                <option th:value="510" th:text="'510 cm'" th:selected="${orderdetails.value[0].carportWidth == 510}"></option>
+                                <option th:value="540" th:text="'540 cm'" th:selected="${orderdetails.value[0].carportWidth == 540}"></option>
+                                <option th:value="570" th:text="'570 cm'" th:selected="${orderdetails.value[0].carportWidth == 570}"></option>
+                                <option th:value="600" th:text="'600 cm'" th:selected="${orderdetails.value[0].carportWidth == 600}"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-            <h3>Materiale</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Antal</th>
-                    <th>Navn</th>
-                    <th>Pris Pr. Meter</th>
-                    <th>Længde</th>
-                    <th>Beskrivelse</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="order, stat : ${orderdetails.value}">
-                    <td th:text="${order.amountOfMaterial} + ' stk.'"></td>
-                    <td th:text="${order.material.name}"></td>
-                    <td th:text="${order.material.pricePrMeter} + ' DKK.'"></td>
-                    <td th:text="${order.material.length} + ' cm.'"></td>
-                    <td th:text="${stat.index == 0 ? 'Stolper nedgraves 90 cm i jord' :
-                                  stat.index == 1 ? 'Remme i sider, sadles ned i stolper' :
-                                  stat.index == 2 ? 'Spær, monteres på rem' :
-                                  stat.index == 3 ? 'Ekstra remme materiale' :
-                                  ''}"></td>
-                </tr>
-                </tbody>
-            </table>
+                <h3>Materiale</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Antal</th>
+                        <th>Navn</th>
+                        <th>Pris Pr. Meter</th>
+                        <th>Længde</th>
+                        <th>Beskrivelse</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order, stat : ${orderdetails.value}">
+                        <td th:text="${order.amountOfMaterial} + ' stk.'"></td>
+                        <td th:text="${order.material.name}"></td>
+                        <td th:text="${order.material.pricePrMeter} + ' DKK.'"></td>
+                        <td th:text="${order.material.length} + ' cm.'"></td>
+                        <td th:text="${stat.index == 0 ? 'Stolper nedgraves 90 cm i jord' :
+                                      stat.index == 1 ? 'Remme i sider, sadles ned i stolper' :
+                                      stat.index == 2 ? 'Spær, monteres på rem' :
+                                      stat.index == 3 ? 'Ekstra remme materiale' :
+                                      ''}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="button-container">
+                    <button type="submit">Opdater ordre</button>
+                </div>
+            </form>
 
             <form th:action="@{/admin/removeorder}" method="post">
                 <input type="hidden" name="orderID" th:value="${orderdetails.value[0].orderID}">

@@ -65,6 +65,36 @@ public class OrderService {
         }
     }
 
+    public void updateOrder(int orderID, int userID, int carportLength, int carportWidth) throws DatabaseException {
+        int posts = MaterialsCalculator.calcNrOfPosts(carportLength, carportWidth);
+        int rafters = MaterialsCalculator.calcNrOfRafters(carportLength, carportWidth);
+        int beams = MaterialsCalculator.calcNrOfBeams(carportLength, carportWidth);
+
+        List<Materials> postMaterials = materialMapper.selectMaterials(300, "97x97 mm. trykimp. Stolpe", connectionPool);
+        List<Materials> beamMaterials = materialMapper.selectMaterials(carportLength, "45x195 mm. sprærtræ ubh.", connectionPool);
+        List<Materials> rafterMaterials = materialMapper.selectMaterials(carportWidth, "45x195 mm. sprærtræ ubh.", connectionPool);
+
+        int totalPrice = calculateTotalPrice(posts, postMaterials) + calculateTotalPrice(beams, beamMaterials) + calculateTotalPrice(rafters, rafterMaterials);
+
+        Orders order = new Orders(orderID, userID, totalPrice);
+        order.setCarportLength(carportLength);
+        order.setCarportWidth(carportWidth);
+        order.setRoofTiles(false);
+
+        orderMapper.updateOrder(order, connectionPool);
+
+        orderlineMapper.deleteOrderlines(orderID, connectionPool);
+        addOrderlines(orderID, postMaterials, posts);
+        addOrderlines(orderID, beamMaterials, 2);
+        addOrderlines(orderID, rafterMaterials, rafters);
+
+        if (carportLength > 600 && carportLength <= 750) {
+            orderlineMapper.addOrderline(orderID, 3, 1, connectionPool);
+        } else if (carportLength > 750) {
+            orderlineMapper.addOrderline(orderID, 3, 2, connectionPool);
+        }
+    }
+
     // Udregner total materiale pris, baseret på antal og længde af materiale.
     private int calculateTotalPrice(int amount, List<Materials> materials) {
         int totalPrice = 0;

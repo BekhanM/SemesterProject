@@ -23,4 +23,17 @@ public class OrderlineMapper {
             throw new DatabaseException("Database error in OrderMapper addOrderline", e.getMessage());
         }
     }
+
+    public static void deleteOrderlines(int orderID, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "DELETE FROM orderline WHERE \"orderID\" = ?";
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, orderID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DatabaseException("Error deleting order lines for order ID " + orderID, e.getMessage());
+        }
+    }
+
 }

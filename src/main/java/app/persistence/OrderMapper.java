@@ -14,6 +14,23 @@ import java.util.List;
 
 public class OrderMapper {
 
+    public static void updateOrder(Orders order, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "UPDATE orders SET \"totalprice\" = ?, \"carportlength\" = ?, \"carportwidth\" = ?, \"rooftiles\" = ? WHERE \"orderID\" = ?";
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, order.getTotalPrice());
+            ps.setInt(2, order.getCarportLength());
+            ps.setInt(3, order.getCarportWidth());
+            ps.setBoolean(4, order.isRoofTiles());
+            ps.setInt(5, order.getOrderID());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DatabaseException("Error updating order with ID " + order.getOrderID(), e.getMessage());
+        }
+    }
+
+
     public static int createOrderID(Orders order, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "INSERT INTO orders (\"userID\", \"totalprice\", \"carportwidth\", \"carportlength\", \"rooftiles\") VALUES (?, ?, ?, ?, ?) RETURNING \"orderID\"";
 
@@ -79,24 +96,23 @@ public class OrderMapper {
     }
 
 
-
     public static List<Orders> getAllOrdersForSearchedUser(int userID, ConnectionPool connectionPool) throws DatabaseException {
         System.out.println("Du er nu i getAllOrdersForSearchedUser");
 
         List<Orders> orderList = new ArrayList<>();
 
         String sql = "SELECT * FROM orders o " +
-                "JOIN users u ON o.\"userID\" =  u.\"userID\" "+
+                "JOIN users u ON o.\"userID\" =  u.\"userID\" " +
                 "WHERE o.\"userID\" = ?";
 
         try (Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql)) {
+             PreparedStatement ps = connection.prepareStatement(sql)) {
 
-            ps.setInt(1, userID); // Set the user ID parameter in the query
+            ps.setInt(1, userID);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                // Retrieve values from the result set
+
                 int orderID = rs.getInt("orderID");
                 int totalprice = rs.getInt("totalprice");
 

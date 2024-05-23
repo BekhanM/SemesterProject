@@ -41,7 +41,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="user : ${userList}">
+    <tr th:each="user : ${userList}" th:if="${user.role != 'admin'}">
         <td th:text="${user.email}"></td>
         <td th:text="${user.firstname}"></td>
         <td th:text="${user.lastname}"></td>
