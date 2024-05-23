@@ -45,13 +45,9 @@ public class Sendgrid {
                 mail.templateId = "d-02687f175d1e4a5fb64da1bd3e97ea26";
                 request.setBody(mail.build());
                 Response response = sg.api(request);
-                System.out.println(response.getStatusCode());
-                System.out.println(response.getBody());
-                System.out.println(response.getHeaders());
             }
             catch (IOException ex)
             {
-                System.out.println("Error sending mail" + ex.getMessage());
                 throw ex;
             }
             return true; // VED IK OM DET ER RIGTIGT

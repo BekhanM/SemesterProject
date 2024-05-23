@@ -1,11 +1,9 @@
 package app.persistence;
 
 import app.entities.Orders;
-import app.entities.User;
 import app.exceptions.DatabaseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.sql.*;
@@ -85,48 +83,6 @@ class OrderMapperTest {
         }
     }
 
-    /*
-    @Test
-    void getOrderById()
-    {
-        try
-        {
-            User user = new User(1, "jon", "1234", "customer");
-            Orders expected = new Order(1, 1, 600, 780, 20000, user);
-            Orders dbOrder = OrderMapper.getOrderById(1, connectionPool);
-            assertEquals(expected, dbOrder);
-        }
-        catch (DatabaseException e)
-        {
-            fail("Database fejl: " + e.getMessage());
-        }
-    } */
-
-    /*
-    @Test
-    void createOrderID() {
-        try {
-            int userID = 1; // Assume userID 1 exists in the test database
-            int newOrderID = OrderMapper.createOrderID(userID, connectionPool);
-
-            // Verify that the new order ID is a positive integer
-            assertTrue(newOrderID > 0, "New order ID should be a positive integer.");
-
-            // Verify that the new order is present in the database
-            try (Connection connection = connectionPool.getConnection();
-                 PreparedStatement ps = connection.prepareStatement("SELECT * FROM orders WHERE \"orderID\" = ?")) {
-                ps.setInt(1, newOrderID);
-                ResultSet rs = ps.executeQuery();
-                assertTrue(rs.next(), "New order should be present in the database.");
-                assertEquals(userID, rs.getInt("userID"), "User ID of the new order should match the provided userID.");
-            } catch (SQLException e) {
-                fail("Database query failed: " + e.getMessage());
-            }
-
-        } catch (DatabaseException e) {
-            fail("Database error: " + e.getMessage());
-        }
-    } */
 
     @Test
     void getAllOrdersForSearchedUser() {
@@ -140,19 +96,4 @@ class OrderMapperTest {
             fail("Database fejl: " + e.getMessage());
         }
     }
-
-
-    /*
-    @Test
-    void removeOrder() {
-        try
-        {
-            OrderMapper.removeOrder(1, connectionPool);
-            List<Orders> remainingOrders = OrderMapper.
-            assertEquals(0, remainingOrders.size());
-        }
-        catch (DatabaseException e) {
-            fail("Database fejl: " + e.getMessage());
-        }
-    } */
 }

@@ -97,7 +97,6 @@ public class OrderMapper {
 
 
     public static List<Orders> getAllOrdersForSearchedUser(int userID, ConnectionPool connectionPool) throws DatabaseException {
-        System.out.println("Du er nu i getAllOrdersForSearchedUser");
 
         List<Orders> orderList = new ArrayList<>();
 
@@ -128,7 +127,6 @@ public class OrderMapper {
     }
 
     public static void removeOrder(int orderID, ConnectionPool connectionPool) throws DatabaseException {
-        System.out.println("Nu er du i removeOrder mapper");
 
         String deleteOrderlineSql = "DELETE FROM orderline WHERE \"orderID\" = ?";
         String deleteOrderSql = "DELETE FROM orders WHERE \"orderID\" = ?";

@@ -139,19 +139,4 @@ class UserMapperTest {
     @Test
     void getAllUsersDetail() {
     }
-
-
-    /*
-    @Test
-    void removeUser() {
-        try
-        {
-            UserMapper.removeUser(1, connectionPool);
-            List<User> remainingUsers = UserMapper.getAllUsersDetail(, connectionPool);
-                    assertEquals(0, remainingOrders.size());
-        }
-        catch (DatabaseException e) {
-            fail("Database fejl: " + e.getMessage());
-        }
-    } */
 }

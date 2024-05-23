@@ -19,7 +19,6 @@ public class CarportController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("/makeyourowncarport2", ctx -> showCarport(ctx));
         app.get("/showCarport", ctx -> showCarport(ctx));
-        // app.get("/showCarport", ctx -> ctx.render("showCarport.html"));
         app.post("/calculateCarport", ctx -> calculateCarport(ctx, connectionPool));
         app.post("/generateSvg", ctx -> generateSvg(ctx));
     }
@@ -35,7 +34,6 @@ public class CarportController {
             int userID = currentUser.getUserID();
             int carportLength = Integer.parseInt(ctx.formParam("carportLength"));
             int carportWidth = Integer.parseInt(ctx.formParam("carportWidth"));
-            System.out.println(carportLength);
 
             OrderMapper orderMapper = new OrderMapper();
             OrderlineMapper orderlineMapper = new OrderlineMapper();

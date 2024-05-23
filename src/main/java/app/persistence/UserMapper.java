@@ -1,6 +1,5 @@
 package app.persistence;
 
-import app.entities.Materials;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 
@@ -99,11 +98,6 @@ public class UserMapper {
     }
 
     public static List<User> getUserDetails(int userID, ConnectionPool connectionPool) throws DatabaseException {
-
-        System.out.println("Nu er du i getUserDetails mapper");
-
-        System.out.println("Executing SQL query to retrieve user details for userID: " + userID);
-
         List<User> userDetailsList = new ArrayList<>();
 
         String sql = "SELECT * FROM users WHERE \"userID\" = ?";

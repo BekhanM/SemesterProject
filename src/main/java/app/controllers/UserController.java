@@ -14,13 +14,15 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static app.services.UserEandPValidation.checkEmailAt;
+import static app.services.UserEandPValidation.validatePassword;
+
 public class UserController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.post("login", ctx -> login(ctx, connectionPool));
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
-        app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
         app.get("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
         app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
         app.get("admin/viewUserOrders", ctx -> viewUserOrders(ctx, connectionPool));
@@ -102,43 +104,6 @@ public class UserController {
         }
     }
 
-    public static boolean checkUpperCase(String str) {
-        char c;
-        boolean upperCaseFlag = false;
-        boolean lowerCaseFlag = false;
-        for (int i = 0; i < str.length(); i++) {
-            c = str.charAt(i);
-            if (Character.isUpperCase(c)) {
-                upperCaseFlag = true;
-            } else if (Character.isLowerCase(c)) {
-                lowerCaseFlag = true;
-            }
-            if (upperCaseFlag && lowerCaseFlag)
-                return true;
-        }
-        return false;
-    }
-
-    public static boolean checkLength(String str) {
-        return str.length() < 129 && str.length() > 7;
-    }
-
-    public static boolean checkNumeric(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.isDigit(str.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean validatePassword(String password) {
-        return checkNumeric(password) && checkLength(password) && checkUpperCase(password);
-    }
-
-    public static boolean checkEmailAt(String email) {
-        return email.contains("@");
-    }
 
     private static void getAllUsersDetail(Context ctx, ConnectionPool connectionPool) {
         String userEmail = ctx.formParam("email");
