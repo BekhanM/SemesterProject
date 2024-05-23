@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -8,7 +7,7 @@ body {
     color: #333;
 }
 
-/* Form Container */
+
 .boxcontent {
     display: flex;
     justify-content: center;
@@ -62,7 +61,7 @@ select:focus {
 }
 
 button.main-button, button.secondary-button, button.goback-button {
-    background-color: #007bff;
+    background-color: #20b121;
     color: white;
     padding: 14px 20px;
     margin-top: 10px;
@@ -75,7 +74,7 @@ button.main-button, button.secondary-button, button.goback-button {
 }
 
 button.main-button:hover {
-    background-color: #0056b3;
+    background-color: #19702c;
 }
 
 button.secondary-button {
@@ -87,11 +86,11 @@ button.secondary-button:hover {
 }
 
 button.goback-button {
-    background-color: #28a745;
+    background-color: #4166b3;
 }
 
 button.goback-button:hover {
-    background-color: #218838;
+    background-color: #24268c;
 }
 
 a {
@@ -107,7 +106,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Order Confirmation Styles */
+
 #confirmationSection {
     display: flex;
     flex-direction: column;

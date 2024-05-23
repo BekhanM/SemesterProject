@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<header>
+    <div class="header-content">
+        <a href="/admin" th:href="@{/admin}" class="logo-container">
+            <img class="logo" alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+            <span class="logo-text">JohannesFog</span>
+        </a>
+    </div>
+</header>
+
 <div class="container">
     <h1>Viser ordre for: <span th:text="${fullname}"></span></h1>
 
@@ -98,7 +107,7 @@
                     </tbody>
                 </table>
                 <div class="button-container">
-                    <button type="submit">Opdater ordre</button>
+                    <button class="update" type="submit">Opdater ordre</button>
                 </div>
             </form>
 
@@ -106,7 +115,7 @@
                 <input type="hidden" name="orderID" th:value="${orderdetails.value[0].orderID}">
                 <input type="hidden" name="userID" th:value="${userID}">
                 <div class="button-container">
-                    <button type="submit">Slet ordre</button>
+                    <button class="delete" type="submit">Slet ordre</button>
                 </div>
             </form>
         </div>

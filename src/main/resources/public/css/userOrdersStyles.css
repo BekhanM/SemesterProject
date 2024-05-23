@@ -5,6 +5,53 @@ body {
     padding: 0;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #0b55a6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header .logo {
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header .logo-text {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    header .logo-text {
+        display: block;
+    }
+}
+
 .container {
     width: 80%;
     margin: 20px auto;
@@ -63,7 +110,7 @@ td {
     justify-content: center;
 }
 
-button {
+button.delete {
     background-color: #e71515;
     color: white;
     padding: 14px 20px;
@@ -79,8 +126,28 @@ button {
     place-content: center;
 }
 
-button:hover {
+button.update {
+    background-color: #036303;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    justify-content: center;
+    align-content: center;
+    place-content: center;
+}
+
+button.delete:hover {
     background-color: #bf2626;
+}
+
+button.update:hover {
+    background-color: #03490f;
 }
 
 .total-price {

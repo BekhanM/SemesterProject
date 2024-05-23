@@ -1,16 +1,11 @@
 package app.services;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.text.DecimalFormat;
 
 public class CarportSvg
 {
-    private static final Logger logger = LoggerFactory.getLogger(CarportSvg.class);
-
-
     private Svg carportSvg;
 
     //----*** VARIABLES ***----//
@@ -51,8 +46,6 @@ public class CarportSvg
         addRafters(carportLength, carportWidth,rafterSpace);
 
         addColumns(carportLength,colomnSpace,columnStartVal);
-        logger.info("Generated SVG: {}", carportSvg.toString());
-
 
     }
 

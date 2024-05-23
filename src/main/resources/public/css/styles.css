@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(240, 240, 240) 100%);
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -8,21 +7,60 @@ body {
     color: #333;
 }
 
-/* Header Styles */
 header {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #343a40;
+    background-color: #0b55a6;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-header img {
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+header .logo {
     max-width: 150px;
+    transition: transform 0.3s ease;
 }
 
-/* Form Inputs and Buttons */
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header .logo-text {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    header .logo-text {
+        display: block;
+    }
+}
+
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -64,7 +102,6 @@ button:hover {
     background-color: #c82333;
 }
 
-/* Stylish Button */
 .stylish-button {
     display: inline-block;
     padding: 10px 20px;
@@ -90,7 +127,6 @@ button:hover {
     transform: translateY(0);
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -130,11 +166,14 @@ button:hover {
 }
 
 @keyframes animatezoom {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
-/* Container and Card Styles */
 .container {
     padding: 16px;
 }
@@ -160,12 +199,15 @@ img.avatar {
     object-fit: cover;
 }
 
-.boxcontent, .boxtitle, .carport {
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+
+
+.carport {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .boxtitle {
@@ -191,11 +233,12 @@ img.avatar {
 
 .carport img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-/* Welcome Box */
 .welcome-box {
     position: fixed;
     top: 20px;
@@ -207,7 +250,6 @@ img.avatar {
     z-index: 999;
 }
 
-/* Options */
 .options {
     display: flex;
     flex-direction: row;
@@ -228,7 +270,6 @@ img.avatar {
     background-color: #e0e0e0;
 }
 
-/* Table */
 table {
     margin-top: 50px;
     width: 100%;
@@ -247,7 +288,6 @@ th {
     background-color: #e5e5e5;
 }
 
-/* Grid */
 .productgrid {
     display: grid;
     padding: 15px;
@@ -271,7 +311,14 @@ th {
     margin-bottom: 10px;
 }
 
-/* Media Queries */
+.carport-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 @media screen and (max-width: 768px) {
     .boxtitle {
         font-size: 12px;

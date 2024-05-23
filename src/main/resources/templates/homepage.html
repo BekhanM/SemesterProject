@@ -8,32 +8,31 @@
 </head>
 <body>
 
-<div class="card-image">
-    <header>
-        <a href="homepage.html" th:href="@{/}">
-            <img alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+<header>
+    <div class="header-content">
+        <a href="homepage.html" th:href="@{/}" class="logo-container">
+            <img class="logo" alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+            <span class="logo-text">JohannesFog</span>
         </a>
-    </header>
-</div>
+    </div>
+</header>
 
 <div class="welcome-box">
     <p th:if="${session.currentUser != null}">
         Velkommen, <span th:text="${session.currentUser.firstname}"></span>!
     </p>
-    <p th:if="${session.currentUser == null}">
-        <button onclick="openModal('id01')" style="width:auto;">Login</button>
-        <button onclick="openModal('id02')" style="width:auto;">Opret bruger</button>
-    </p>
-    <p th:if="${session.currentUser != null}">
-        <button onclick="window.location.href='/userorders'" style="width:auto;">Mine Ordre.</button>
-    </p>
-
-    <div th:if="${session.currentUser != null}">
-        <form th:action="@{/logout}" method="post">
-            <button type="submit" name="logout" style="width: auto;">Logout</button>
+    <div th:if="${session.currentUser != null}" class="button-group">
+        <button onclick="window.location.href='/userorders'" style="width:auto;">Mine Ordre</button>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit" name="logout" style="width:auto;">Log ud</button>
         </form>
     </div>
+    <div th:if="${session.currentUser == null}">
+        <button onclick="openModal('id01')" style="width:auto;">Login</button>
+        <button onclick="openModal('id02')" style="width:auto;">Opret bruger</button>
+    </div>
 </div>
+
 
 <div id="id01" class="modal">
     <form class="modal-content animate" action="/templates/login.html" method="post">
@@ -136,18 +135,16 @@
 
 <div class="options">
     <div th:if="${session.currentUser != null}">
-        <a class="stylish-button"  th:href="@{/makeyourowncarport2}">Lav din egen carport</a>
+        <a class="stylish-button" th:href="@{/makeyourowncarport2}">Lav din egen carport</a>
     </div>
     <div th:if="${session.currentUser == null}">
         <button class="stylish-button" onclick="alert('Vi har brug for information om dig. Venligst log ind eller opret en bruger.');">Lav din egen carport</button>
     </div>
 </div>
 
-
 <div class="carport-container productgrid">
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-6-00x5-40-m-car01dr-00822"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-6-00x5-40-m-car01dr-00822}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-6-00x5-40-m-car01dr-00822" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-6-00x5-40-m-car01dr-00822}">
             <img alt="carport img" src="../public/images/img.png" th:src="@{/images/img.png}">
         </a>
         <div class="carport-info">
@@ -157,8 +154,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x4-80-m-car01du-00821"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x4-80-m-car01du-00821}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x4-80-m-car01du-00821" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x4-80-m-car01du-00821}">
             <img alt="carport img" src="../public/images/carport1.png" th:src="@{/images/carport1.png}">
         </a>
         <div class="carport-info">
@@ -168,8 +164,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x7-80-m-cp01dur-00823"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x7-80-m-cp01dur-00823}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x7-80-m-cp01dur-00823" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x7-80-m-cp01dur-00823}">
             <img alt="carport img" src="../public/images/carport2.png" th:src="@{/images/carport2.png}">
         </a>
         <div class="carport-info">
@@ -179,8 +174,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-00x4-80-m-car01-00816"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-00x4-80-m-car01-00816}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-00x4-80-m-car01-00816" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-00x4-80-m-car01-00816}">
             <img alt="carport img" src="../public/images/carport3.png" th:src="@{/images/carport3.png}">
         </a>
         <div class="carport-info">
@@ -190,8 +184,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x9-90-m-cp02hxl-9116206"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x9-90-m-cp02hxl-9116206}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x9-90-m-cp02hxl-9116206" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/dobbelt-carporte/dobbelt-carport-6-00x9-90-m-cp02hxl-9116206}">
             <img alt="carport img" src="../public/images/carport4.png" th:src="@{/images/carport4.png}">
         </a>
         <div class="carport-info">
@@ -201,8 +194,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x5-40-m-car01h-9116199"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x5-40-m-car01h-9116199}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x5-40-m-car01h-9116199" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x5-40-m-car01h-9116199}">
             <img alt="carport img" src="../public/images/carport7.png" th:src="@{/images/carport7.png}">
         </a>
         <div class="carport-info">
@@ -212,8 +204,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x7-20-m-car01hr-9116200"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x7-20-m-car01hr-9116200}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x7-20-m-car01hr-9116200" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x7-20-m-car01hr-9116200}">
             <img alt="carport img" src="../public/images/carport5.png" th:src="@{/images/carport5.png}">
         </a>
         <div class="carport-info">
@@ -223,8 +214,7 @@
     </div>
 
     <div class="carport">
-        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x8-10-m-carl01hr-9116201"
-           th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x8-10-m-carl01hr-9116201}">
+        <a href="https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x8-10-m-carl01hr-9116201" th:href="@{https://www.johannesfog.dk/have-fritid/carporte/enkelt-carporte/enkelt-carport-3-60x8-10-m-carl01hr-9116201}">
             <img alt="carport img" src="../public/images/carport6.png" th:src="@{/images/carport6.png}">
         </a>
         <div class="carport-info">
@@ -232,8 +222,6 @@
             <p>35.998,00 DKK</p>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

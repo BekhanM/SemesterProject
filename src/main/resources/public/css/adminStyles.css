@@ -7,21 +7,55 @@ body {
     color: #333;
 }
 
-/* Header Styles */
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #343a40;
+    background-color: #0b55a6;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-header img {
+header .logo {
     max-width: 150px;
+    transition: transform 0.3s ease;
 }
 
-/* Form Inputs and Buttons */
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header .logo-text {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    header .logo-text {
+        display: block;
+    }
+}
+
+
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -63,7 +97,7 @@ button:hover {
     background-color: #c82333;
 }
 
-/* Stylish Button */
+
 .stylish-button {
     display: inline-block;
     padding: 10px 20px;
@@ -89,7 +123,7 @@ button:hover {
     transform: translateY(0);
 }
 
-/* Modal Styles */
+
 .modal {
     display: none;
     position: fixed;
@@ -133,7 +167,7 @@ button:hover {
     to { transform: scale(1); }
 }
 
-/* Container and Card Styles */
+
 .container {
     padding: 16px;
 }
@@ -194,7 +228,7 @@ img.avatar {
     margin-bottom: 20px;
 }
 
-/* Welcome Box */
+
 .welcome-box {
     position: fixed;
     top: 20px;
@@ -206,7 +240,7 @@ img.avatar {
     z-index: 999;
 }
 
-/* Options */
+
 .options {
     display: flex;
     flex-direction: row;
@@ -227,7 +261,7 @@ img.avatar {
     background-color: #e0e0e0;
 }
 
-/* Table */
+
 .user-table {
     margin-top: 50px;
     width: 100%;
@@ -260,7 +294,7 @@ img.avatar {
     background-color: #f1f1f1;
 }
 
-/* Grid */
+
 .productgrid {
     display: grid;
     padding: 15px;
@@ -284,7 +318,6 @@ img.avatar {
     margin-bottom: 10px;
 }
 
-/* Media Queries */
 @media screen and (max-width: 768px) {
     .boxtitle {
         font-size: 12px;
@@ -328,7 +361,7 @@ img.avatar {
     margin: auto;
 }
 
-/* New Methods for Enhancements */
+
 .admin-form {
     background-color: #f9f9f9;
     padding: 20px;

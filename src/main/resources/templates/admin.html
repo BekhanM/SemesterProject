@@ -8,16 +8,20 @@
 </head>
 <body>
 
-<div class="card-image">
-    <header>
-        <a href="homepage.html" th:href="@{/}">
-            <img alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+<header>
+    <div class="header-content">
+        <a href="admin" th:href="@{admin}" class="logo-container">
+            <img class="logo" alt="logo" src="../public/images/fog100.png" th:src="@{/images/fog100.png}">
+            <span class="logo-text">JohannesFog</span>
         </a>
-    </header>
-</div>
+    </div>
+</header>
 
 <div class="welcome-box">
     <p th:if="${session.currentUser != null}">Velkommen, <span th:text="${session.currentUser.firstname}"></span>!</p>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit" name="logout" style="width:auto;">Log ud</button>
+    </form>
 </div>
 
 <form th:action="@{/admin}" method="post" class="admin-form">

@@ -21,7 +21,7 @@ public class CarportController {
         app.get("/showCarport", ctx -> showCarport(ctx));
         // app.get("/showCarport", ctx -> ctx.render("showCarport.html"));
         app.post("/calculateCarport", ctx -> calculateCarport(ctx, connectionPool));
-        app.post("/generateSvg", ctx -> generateSvg(ctx)); // New route to generate SVG
+        app.post("/generateSvg", ctx -> generateSvg(ctx));
     }
 
     private static void calculateCarport(Context ctx, ConnectionPool connectionPool) {

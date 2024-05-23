@@ -21,8 +21,8 @@ public class UserController {
         app.get("createuser", ctx -> ctx.render("login.html"));
         app.post("createuser", ctx -> createUser(ctx, connectionPool));
         app.get("makeyourowncarport", ctx -> ctx.render("makeyourowncarport.html"));
-        app.get("admin", ctx -> getAllUsersDetail(ctx, connectionPool));  // Change to getAllUsersDetail for initial load
-        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));  // Change to getAllUsersDetail for search
+        app.get("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
+        app.post("admin", ctx -> getAllUsersDetail(ctx, connectionPool));
         app.get("admin/viewUserOrders", ctx -> viewUserOrders(ctx, connectionPool));
         app.post("removeuser", ctx -> removeUser(ctx, connectionPool));
         app.post("logout", ctx -> logout(ctx));
