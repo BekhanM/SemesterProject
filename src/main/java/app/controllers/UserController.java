@@ -145,13 +145,11 @@ public class UserController {
         try {
             List<User> userList;
             if (userEmail == null || userEmail.isEmpty()) {
-                System.out.println("have we even beeen here?");
-                userList = UserMapper.showAllUsers(connectionPool); // Fetch all users if no email is provided
+                userList = UserMapper.showAllUsers(connectionPool);
             } else {
-                userList = UserMapper.getAllUsersDetail(userEmail, connectionPool); // Filter users by email
+                userList = UserMapper.getAllUsersDetail(userEmail, connectionPool);
             }
             ctx.attribute("userList", userList);
-            System.out.println("Number of users fetched: " + userList.size()); // Debug statement
             ctx.render("admin.html");
         } catch (DatabaseException e) {
             ctx.status(500).result("Error retrieving user details: " + e.getMessage());
